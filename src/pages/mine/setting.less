@@ -1,0 +1,55 @@
+@import "../reset.less";
+.setting-wrap{
+	width: 100%;
+	overflow-x: hidden;
+	.setting_item .am-list-item .am-list-line .am-list-extra {
+		flex-basis: initial;
+	}
+	.setting_item{
+		position: relative;
+		display: block;
+		background-color: #fff;
+		.am-list-body{
+			border: 0 none;
+			&:before,&:after, .am-list-line::after{ opacity: 0;}
+		}
+		.am-list-item .am-list-line .am-list-content,
+		.am-list-item .am-list-line .am-list-extra,
+		.am-list-item .am-input-label,
+		.am-list-item .am-input-control input{font-size: .16rem !important;}
+		.am-list-item .am-list-line .am-list-content,
+		.am-list-item .am-input-label.am-input-label-5,
+		.am-list-item .am-input-label{ width: .8rem;}
+		.am-list-item .am-list-line .am-list-extra{color: #000;position: absolute;left: .85rem;}
+		.photo, .phone_txt{
+			position: absolute;
+			.lineH(.28rem);
+			width: 100%;
+			left: 1.05rem;
+			top: 8px;
+		}
+		.photo{
+			img{
+				display: block;
+				.circle(.28rem);
+			}
+			input[type="file"]{
+				opacity: 0;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				z-index: 2;
+			}
+		}
+		.phone_txt{
+			color: #bbbbc0;
+			&.has{color: #000;}
+		}
+	}
+	.no_arrow .am-list-item .am-list-line .am-list-arrow{opacity: 0;}
+
+	.options{
+		background-color: #fff;
+		padding-top: .32rem;
+	}
+}

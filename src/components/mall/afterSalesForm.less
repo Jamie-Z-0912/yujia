@@ -1,0 +1,70 @@
+@import "../../pages/fun.less";
+.form-wrap{
+	background-color: #fff;
+	position: relative;
+	height: auto;
+	.form-label{
+		font-size: .14rem;
+		line-height: .3rem;
+	}
+	.viewTextArea{
+		position: relative;
+		background-color: #fff;
+		padding: 0;
+		font-size: @f2;
+		.am-list-item{
+			padding-left: 0;
+			padding-bottom: 0;
+			.am-textarea-control{padding: 0;}
+		}
+		.am-textarea-focus .am-textarea-clear {
+			position: absolute;
+			right: .1rem;
+			bottom: .15rem;
+		}
+		.am-textarea-control textarea{
+			font-size: @f3;
+		}
+	}
+	.am-image-picker-list{margin-bottom: 0;padding: 0;}
+	.form-more{
+		border-top: .1rem solid #f5f5f5;
+		margin-left: -.1rem;
+		margin-right: -.1rem;
+		padding: .1rem .1rem 0;
+		.form-item{
+			font-size: 0;
+			padding-top: .12rem;
+			margin-bottom: .02rem;
+			label, .value{display: inline-block;.lineH(.2rem); vertical-align: middle;}
+			label{
+				font-size: .15rem;
+				color: #666;
+				padding-right: .15rem;
+				&.block{
+					display: block;
+					span{font-size: .12rem; color: #999;}
+				}
+			}
+			.value{border-bottom: 1px solid #eee;}
+			.block~div{
+				display: block;
+				padding-top: .12rem;
+			}
+			.am-list-item{min-height: auto; height: .2rem; padding-left: 0;}
+		}
+	}
+
+	.options{
+		position: fixed;
+		.lineH(48px);
+		bottom: 0;
+		width: 100%;
+		max-width: 750px;
+		z-index: 99;
+		background-color: @c_blue;
+		color: #fff;
+		font-size: @f2;
+		text-align: center;
+	}
+}

@@ -1,0 +1,56 @@
+@import "../../pages/fun.less";
+.reward-modal{
+	.am-modal-content .am-modal-body{padding: 0 .05rem ; margin-top: -.1rem;}
+	.gift_list{
+		padding: 0;
+		list-style: none;
+		margin: 0;
+		font-size: 0;
+		li{
+			width: 25%;
+			margin: 0;
+			display: inline-block;
+			.box{
+				position: relative;
+				padding: .1rem .1rem 0;
+				text-align: center;
+				img{
+					display: block;
+					width: 100%;
+					max-width: .68rem;
+					margin: 0 auto .1rem;
+				}
+				.name{
+					font-size: @f2;
+					color: @color2;
+				}
+				.price{
+					font-size: @f3;
+					color: @c_sub;
+				}
+			}
+			&.active{
+				.box{
+					img{
+						border-radius: .06rem;
+						box-shadow: 0 0 .1rem rgba(130,212,218,1);
+					}
+					.am-icon{
+						position: absolute;
+						color: @c_red;
+						top: .04rem;
+						right: .04rem;
+					}
+				}
+			}
+		}
+	}
+	.options{
+		padding: .2rem .05rem;
+		.btn_big{
+			.lineH(.42rem);
+			width: 100%;
+			border-radius: .06rem;
+		}
+	}
+}

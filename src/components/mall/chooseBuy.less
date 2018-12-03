@@ -1,0 +1,72 @@
+@import "../../pages/fun.less";
+.chooseBuyWrap{
+	.gray{
+		font-size: .14rem;
+		color: #999;
+	}
+	.chooseBuyHd{
+		text-align: left;
+		.cover{
+			position: absolute;
+			top: -.44rem;
+			left: .2rem;
+			.square(.94rem);
+			.border-radius(.06rem);
+			border: 1px solid #cfcfcf;
+			overflow: hidden;
+			img{display: block; width: 100%; height: 100%;}
+		}
+		.info{
+			margin-left: 1.15rem;
+			.lineH(.4rem);
+			padding-bottom: .2rem;
+			dl,dt,dd{display: inline-block; vertical-align: middle;}
+			dt{padding: 0 .1rem;}
+			dd{ font-size: .14rem; color: @color1;}
+		}
+	}
+	.chooseBuyBd{
+		text-align: left;
+		.bd_title{
+			padding-left: .1rem;
+			padding-bottom: .1rem;
+			.gray;
+			display: block;
+		}
+		ul.bd_tags{
+			list-style: none;
+			margin: 0 0 .15rem;
+			font-size: 0;
+			li{
+				display: inline-block;
+				vertical-align: middle;
+				background-color: @c_bg;
+				padding: 0 .15rem;
+				.lineH(.28rem);
+				.border-radius(.14rem);
+				font-size: .14rem;
+				color: @color1;
+				border: 1px solid @c_bg;
+				margin-left: .1rem;
+				margin-bottom: .08rem;
+				&.selected{
+					background-color: #fff;
+					border-color: @c_red;
+					color: @c_red;
+				}
+			}
+		}
+		.bd_num{
+			position: relative;
+			text-align: right;
+			.bd_title{
+				position: absolute;
+				left: 0;
+			}
+			.bd_value{
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+	}
+}

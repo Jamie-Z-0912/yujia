@@ -1,0 +1,67 @@
+@import "../../pages/fun.less";
+.activity-wrap{
+	position: relative;
+	padding: 0;
+	.users-card{
+		margin-top: .1rem;
+		background-color: #fff;
+		.title{
+			position: relative;
+			padding: .05rem .1rem;
+			.lineH(.36rem);
+			span{
+				font-size: @f2;
+				color: @c_sub;
+			}
+			a{
+				position: absolute;
+				right: 0;
+				top: .05rem;
+				font-size: @f3;
+				color: @c_sub;
+				padding-right: .26rem;
+				.am-icon{
+					position: absolute;
+					right: .05rem;
+					top: 50%;
+					margin-top: -11px;
+					transform: scale(.8);
+				}
+			}
+		}
+		.users_list{
+			font-size: 0;
+			margin-left: .1rem;
+			margin-right: .1rem;
+			padding: 0 0 .1rem;
+			word-break: keep-all;
+			img{
+				display: inline-block;
+				.circle(.32rem);
+				margin-right: .1rem;
+			}
+			&.all{
+				display: flex;
+				align-items: left;
+				justify-content: space-between;
+				flex-wrap: wrap;
+			}
+		}
+	}
+	.activity-info{
+		margin-top: .1rem;
+		background-color: #fff;
+		padding: .08rem 0;
+		.activity_info_item{
+			font-size: 0;
+			.lineH(.36rem);
+			span{
+				display: inline-block;
+				font-size: @f2;
+				color: @color2;
+				&:first-child{ color: @c_sub;padding: 0 .1rem;width: 4.2em;}
+			}
+		}
+	}
+
+}

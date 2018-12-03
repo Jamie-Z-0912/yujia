@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <title>小清柠</title>
+    <style type="text/css">
+        /* html,body{overflow: hidden;height: 100%} */
+    </style>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+<!-- <div data-own="1" id="root" style="height: 100%; overflow-y: auto;"></div> -->
+<div data-own="1" id="root"></div>
+<script>
+	function getQueryStr(name){
+		const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+		const r = window.location.search.substr(1).match(reg);
+		if (r !== null) {
+			return unescape(r[2]);
+		}
+		return null;
+	}
+	if(getQueryStr('unit_id') && getQueryStr('appId')){
+		const localUnit = window.localStorage.getItem('XQN_BASE');
+		if(localUnit && JSON.parse(localUnit).unit_id!== getQueryStr('unit_id')){
+            window.localStorage.removeItem('XQN_TOKEN');
+            window.localStorage.removeItem('XQN_REFRESHTOKEN');
+            window.localStorage.removeItem('ChannelArr');
+            window.localStorage.removeItem('XQN_channelId');
+            window.localStorage.removeItem('XQN_USERINFO');
+        }
+        const base = {
+            unit_id: getQueryStr('unit_id'),
+            appId: getQueryStr('appId'),
+            baseFile: location.pathname.split('/')[1],
+        };
+        window.localStorage.setItem('XQN_BASE', JSON.stringify(base));
+    }
+</script>
+</body>
+</html>

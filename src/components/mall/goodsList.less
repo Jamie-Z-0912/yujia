@@ -1,0 +1,33 @@
+.goods_list{
+	padding: 0 .1rem;
+	&.list{
+		.goods_item_box{margin-top: .1rem;}
+	}
+	&.block{
+		.goods_item_box{
+			box-sizing: border-box;
+			height: auto;
+			width: 50%;
+			display: inline-block;
+			vertical-align: middle;
+			margin-top: .1rem;
+			.img_box{
+				position: static;
+				margin: 0 auto;
+			}
+			.text_box{
+				height: .7rem;
+				margin-left: 0;
+				padding-top: .2rem;
+				.name{
+					line-height: .22rem;
+					height: .44rem;
+					padding: 0 .1rem;
+				}
+				.price{padding: 0 .1rem;}
+			}
+			&:nth-child(even){border-left: .03rem solid #f6f6fa;}
+			&:nth-child(odd){border-right: .03rem solid #f6f6fa;}
+		}
+	}
+}

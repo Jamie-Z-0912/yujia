@@ -1,0 +1,35 @@
+@import "../../pages/fun.less";
+.activityUsers-wrap{
+	background-color: #fff;
+	.activityUsers-item{
+		margin: 0 .1rem;
+		border-bottom: 1px solid #efefef;
+		font-size: 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		padding: .1rem 0;
+		text-align: left;
+		span{
+			display: inline-block;
+			vertical-align: middle;
+			font-size: @f2;
+			color: @color2;
+			.lineH(.3rem);
+			&.img_box{
+				.circle(.3rem);
+				overflow: hidden;
+				img{display: block; width: 100%;height: 100%;}
+			}
+			&.order{
+				margin-right: .1rem;
+			}
+			&.name{
+				width: 4.2em;
+				.ellipsis-one();
+				text-align: left;
+			}
+		}
+	}
+}

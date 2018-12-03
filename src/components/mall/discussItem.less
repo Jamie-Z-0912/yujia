@@ -1,0 +1,26 @@
+@import "../../pages/fun.less";
+.discuss_item{
+	padding: .1rem 0;
+	.discuss_hd{
+		position: relative;
+		.photo{
+			position: absolute;
+			left: 0;
+			top: 0;
+			.circle(.32rem);
+			overflow: hidden;
+			img{display: block; width: 100%;height: 100%;}
+		}
+		.info{
+			margin-left: .42rem;
+			.name{.lineH(.18rem); font-size: @f3;}
+			.other{.lineH(.14rem); font-size: @f4; color: @c_sub;}
+		}
+	}
+	.discuss_con{
+		font-size: .15rem;
+		color: @color2;
+		word-break: break-all;
+		padding-top: .1rem;
+	}
+}

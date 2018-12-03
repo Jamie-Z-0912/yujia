@@ -1,0 +1,82 @@
+@import "../../pages/fun.less";
+.apply-modal{
+	.am-modal-close{
+		right: .1rem;
+		top: .1rem;
+	}
+	.am-modal-content{
+		border-radius: .04rem;
+		padding-top: 0;
+		background-color: @c_bg;
+		.am-modal-header{
+			padding: .22rem 0 0;
+			.am-modal-title{
+				font-size: .23rem;
+				color: @color1;
+				line-height: .3rem;
+			}
+		}
+		.am-modal-body{
+			padding: 0 .1rem .24rem;
+			margin-top: -.15rem;
+			.am-list{
+				text-align: left;
+				.am-list-header{
+					font-size: .13rem;
+					color: #000;
+					padding: .23rem .08rem .05rem;
+					.error{
+						color: @c_red;
+					}
+				}
+				.am-list-body{
+					background-color: #fff;
+					border: 1px solid #eaeaea;
+					padding: .1rem;
+					border-radius: .06rem;
+					&:before, &:after{ opacity: 0;}
+					input{
+						font-size: .16rem;
+						color: #494949;
+						width: 100%;
+						margin-left: -.1rem;
+						margin-right: -.1rem;
+						padding-left: .1rem;
+						height: .24rem;
+						line-height: .24rem;
+						border-color: transparent !important;
+					}
+				}
+			}
+		}
+		.am-modal-footer{
+			div{
+				border-top: 1px solid #EAEAEA;
+				&:before{ opacity: 0 !important;}
+				.am-modal-button:before{ opacity: 0;}
+				.am-modal-button:first-child{
+					color: #ff465f;
+				}
+				.am-modal-button:last-child{
+					background-color: #ff465f;
+					color: #fff;
+				}
+			}
+		}
+	}
+	.bottom{
+		padding-top: .3rem;
+		.btn_big{
+			font-size: .18rem;
+			.lineH(.44rem);
+			width: 100%;
+			.border-radius(.22rem);
+		}
+		.tips{
+			padding-top: .13rem;
+			color: @c_sub;
+			text-align: left;
+			font-size: @f3;
+		}
+	}
+}

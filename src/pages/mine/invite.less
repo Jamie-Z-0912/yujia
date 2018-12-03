@@ -1,0 +1,44 @@
+@import "../reset.less";
+body{
+	background-color: #fff;
+}
+.invite_wrap{
+	background: url("../../static/img/invite_bg.png") repeat-y;
+	background-size: 100%;
+	.invite_con{
+		padding-top: .68rem;
+		position: relative;
+		.invite_link{
+			position: absolute;
+			right: .3rem;
+			top: .2rem;
+			.lineH(.3rem);
+			padding: 0 .1rem;
+			font-size: @f3;
+			color: #d80000;
+			z-index: 2;
+		}
+		img{
+			display: block;
+			width: 100%;
+		}
+		.ps{
+			.lineH(.3rem);
+			font-size: @f3;
+			text-align: center;
+			color: #d80000;
+			padding: .1rem 0 .2rem;
+		}
+		&:after{
+			content: '';
+			position: absolute;
+			z-index: 1;
+			top: 1.6rem;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: url("../../static/img/hongbao.png") no-repeat;
+			background-size: 100%;
+		}
+	}
+}

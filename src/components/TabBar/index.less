@@ -1,0 +1,53 @@
+.pageTabBar{
+	position: fixed;
+	z-index: 500;
+	bottom: 0;
+	width: 100%;
+	background-color: #F7F7F7;
+	height: .48rem;
+	padding: .07rem 0 .05rem;
+	max-width: 750px;
+	ul.tab_body{
+		width: 100%;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: flex;
+		li{
+			display: block;
+			-webkit-box-flex: 1;
+			-webkit-flex: 1;
+			flex: 1;
+			font-size: 0;
+			color: #999999;
+			text-align: center;
+			width: 1%;
+			a{
+				display: block;
+				width: 100%;
+				p{ color: #868686; font-size: .1rem; font-weight: 500;}
+			}
+			i.bar_icon{
+				display: block;
+				width: .28rem;
+				height: .28rem;
+				background-repeat: no-repeat;
+				background-size: 100%  100% !important;
+				margin: 0 auto;
+				&.news{ background-position: -.12rem -.11rem; }
+				&.community{ background-position: -.66rem -.11rem; }
+				&.living{ background-position: -1.18rem -.11rem; }
+				&.mine{ background-position: -1.7rem -.11rem; }
+				&.mall{ background-position: -2.24rem -.11rem; }
+			}
+			a.active{
+				p{ color: #02c4cf;}
+				i.bar_icon{
+					&.news{ background-position: -.12rem -.63rem; }
+					&.community{ background-position: -.66rem -.63rem; }
+					&.living{ background-position: -1.18rem -.63rem; }
+					&.mine{ background-position: -1.7rem -.63rem; }
+				}
+			}
+		}
+	}
+}

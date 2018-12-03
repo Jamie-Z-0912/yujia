@@ -1,0 +1,51 @@
+@import "../../pages/fun";
+.address-card{
+	position: relative;
+	background: url("../../static/img/address_bg.png") repeat-x bottom left #fff;
+	background-size: auto 3px;
+	margin-right: .1rem;
+	margin-left: .1rem;
+	padding: .1rem;
+	.address-hd{
+		font-size: @f2;
+		color: @color2;
+		.mobile{margin-left: .2rem;}
+	}
+	.address{
+		font-size: @f3;
+		color: #999;
+		line-height: .18rem;
+		margin-right: .48rem;
+		padding: .05rem 0;
+		i{
+			background-color: @c_red;
+			color: #fff;
+			display: inline-block;
+			vertical-align: middle;
+			font-style: normal;
+			.lineH(.16rem);
+			padding: 0 .04rem;
+			border-radius: .08rem;
+			margin-right: .04rem;
+		}
+	}
+	.address~.iconEdit{
+		color: #000;
+	}
+	.iconEdit{
+		position: absolute;
+		.square(.22rem);
+		top: 50%;
+		right: .1rem;
+		margin-top: -.1rem;
+		background: url("../../static/img/edit.png") no-repeat center center;
+		background-size: .22rem;
+	}
+	.am-icon{
+		color: @c_sub;
+		position: absolute;
+		top: 50%;
+		right: .1rem;
+		margin-top: -.1rem;
+	}
+}

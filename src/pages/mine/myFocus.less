@@ -1,0 +1,37 @@
+@import '../reset.less';
+.myFocus-wrap{
+	background-color: #fff;
+	.list_item{
+		font-size: 0;
+		text-align: left;
+		position: relative;
+		.lineH(.32rem);
+		padding: .14rem .1rem;
+		a{display: block;}
+		.photo{
+			.circle(.32rem);
+			overflow: hidden;
+			display: inline-block;
+			vertical-align: middle;
+			background-color: rgba(138,138,138, .2);
+			img{display: block; width: 100%;height: 100%;}
+		}
+		.name{
+			display: inline-block;
+			vertical-align: middle;
+			font-size: @f1;
+			color: @color2;
+			margin-left: .1rem;
+		}
+		.item_right{
+			position: absolute;
+			right: .1rem;
+			top: .14rem;
+		}
+	}
+	.no-more-data{
+		padding: 10px;
+		text-align: center;
+		color: #999;
+	}
+}

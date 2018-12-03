@@ -1,0 +1,29 @@
+.banner_wrap{
+	position: relative;
+	overflow: hidden;
+	.text{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: .7rem;
+		padding-right: .7rem;
+		margin-right: -.7rem;
+		background-image: -webkit-linear-gradient(top, color-stop(rgba(0,0,0,0) 0%), color-stop(rgba(0,0,0,.6) 100%));
+		background-image: -o-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,.6) 100%);
+		background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,.6) 100%);
+		background-repeat: repeat-y;
+		color: #fff;
+		font-size: .16rem;
+		padding-left: .1rem;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		line-height: .3rem;
+		height: .3rem;
+		z-index: 9;
+	}
+	.am-carousel-wrap{
+		text-align: right;
+		.am-carousel-wrap-dot:last-child{margin-right: .1rem}
+	}
+}

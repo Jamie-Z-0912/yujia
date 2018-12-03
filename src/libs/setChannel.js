@@ -1,0 +1,20 @@
+
+const MINE_ICON = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAmCAMAAACIwYlVAAAAb1BMVEUAAADIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj4m1dwAAAAJHRSTlMA+gtSE/bWJ9HBnJV4Re26qI1cLwXozLOhnzQa8t3KiW5rZiA4SiYAAAAA3UlEQVQ4y63S6w6CMAyGYQYyQI4CKohnv/u/RmM0TNa0TYzv7yfNljag9e2+AmzeBXoHi0/rULORwVy6km35sk6Ls1dbLMolnMOrEwYbHzc8vsLP8H+sQYpYfKR4wz4ZtD2HE9Cyv+AQtHXAZSluWbwhNg758xReQdt51iQCjshgqWxhK/n6k5gchlDL3IV2/+dA7T7jWseNW8ik0KmAa9cJ8lGkWGZvzLrLGqBVRU9pZMF0Kv1dZBC69IuxMcSa79dCq3A4VfHWYej9iI1qY4cHFY8Oh4M824zvpT8BQ1xpRJrYhLUAAAAASUVORK5CYII=";
+const MINE_ACTIVE_ICON = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAmCAMAAACIwYlVAAAAbFBMVEUAAAAytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnoytnqmjnqeAAAAI3RSTlMA+gtSE/bWwCfRtpyVeEXtqI1cLwXozKGfNBry3cqJbmtmIPErSLcAAADcSURBVDjLrdLrDoIwDIZhBjIOchIQEM9+93+PxmicrLZNjO/vJ82WNqD1bV4DtugCvZ3Fq3Wo2cjgXbaSbfWwTouzV1ssKiRcwKsTBhsfNzw+w8/wf8xBili8p3jDPhm0nMMpaMlfcAjaOuCyFLcs3hAbh/x5Cq+gDZ41qXTNZLBUsrC1fP1pTA5DqGXuQrv/Y6B2JZsWatxCZoXOJVxDJ8hbmWGZvTDrrnJ8qS57SiMLpkPl7yKB0KlfjI0h1ny+Flqlw5mKtw5D70dsVBs7PKp4cjgc5dlmei79Dg3LZlVFT2TwAAAAAElFTkSuQmCC";
+const mine = {
+	id: 99920180910,
+	channel_type: 5,
+	channel_name: "我的",
+	uncheck_channel_img_url: MINE_ICON,
+	channel_img_url: MINE_ACTIVE_ICON,
+	share_desc: "小清柠",
+	share_title: "我的",
+	is_banner: 0,
+	is_label: 0,
+	is_read: 0,
+};
+
+export default function setChannel(channelRes) {
+	const temp = [...channelRes, mine];
+	window.localStorage.setItem('ChannelArr', JSON.stringify(temp));
+}

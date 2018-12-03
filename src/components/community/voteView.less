@@ -1,0 +1,97 @@
+@import "../../pages/fun.less";
+.vote_wrap{
+	.vote_list{
+		padding: 0;
+		margin: 0;
+		li{
+			position: relative;
+			display: block;
+			border: 1px solid #f0f0f0;
+			font-size: 0;
+			padding: 0;
+			margin: .1rem 0;
+			.col_img{
+				width: .6rem;
+				img{
+					display: block;
+					.square(.6rem);
+					margin: -1px;
+				}
+			}
+			.col_txt{
+				position: absolute;
+				left: .7rem;
+				right: .34rem;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				font-size: @f2;
+				color: @color2;
+				overflow: hidden;
+				display: flex;
+				height: .6rem;
+				flex-direction: column;
+				justify-content: space-between;
+				p{margin: auto 0;padding: 0; line-height: 1.4;}
+			}
+			.col_right{
+				position: absolute;
+				right: 0;
+				top: 0;
+				padding: .23rem .1rem;
+				.square(.14rem);
+				.radio{
+					position: relative;
+					display: block;
+					.border-radius(.04rem);
+					.square(.14rem);
+					background-color: #fff;
+					border: 1px solid #aaa;
+					&:before{
+						position: absolute;
+						content: '';
+						background-color: transparent;
+						.border-radius(50%);
+						top: .03rem;
+						right: .03rem;
+						bottom: .03rem;
+						left: .03rem;
+						margin: auto;
+					}
+					&.selected:before{ background-color: @c_blue;}
+				}
+			}
+		}
+		li.result{
+			border: 0 none;
+			.col_txt{right: .1rem;overflow: visible; height: .4rem;p{margin-top: 0;}}
+			.col_txt .slide{
+				position: relative;
+				width: 100%;
+				height: 3px;
+				font-size: 0;
+				overflow: visible;
+				white-space: nowrap;
+				i{
+					display: inline-block;
+					vertical-align: bottom;
+					height: 100%;
+					background-color: @c_blue;
+				}
+				span{
+					display: inline-block;
+					vertical-align: top;
+					color: @c_sub;
+					font-size: @f4;
+					margin-left: .05rem;
+					line-height: 0;
+				}
+			}
+		}
+	}
+	.vote_option{
+		padding-top: .1rem;
+		text-align: center;
+		.vote_time{ padding-top: .06rem;}
+	}
+}

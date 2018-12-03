@@ -1,0 +1,76 @@
+@import "../../pages/fun.less";
+.topicRT_item_box{
+	box-sizing: content-box;
+	padding: .18rem .1rem;
+	height: .77rem;
+	position: relative;
+	text-align: left;
+	a{display: block;}
+	.img_box{
+		position: absolute;
+		right: .1rem;
+		top: .18rem;
+		height: .77rem;
+		width: 1.16rem;
+		border-radius: .06rem;
+		box-shadow: 0 2px 18px rgba(0,0,0,.2);
+		overflow: hidden;
+		img{display: block; width: 100%; height: 100%;}
+	}
+	.text_box{
+		position: relative;
+		height: .77rem;
+		margin-right: 1.32rem;
+		.tit{
+			font-size: @f2;
+			color: @color2;
+			.ellipsis(2);
+			line-height: .22rem;
+		}
+		.topic_other{
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			text-align: right;
+			.user_num{
+				background: url("../../static/img/user_num.png") no-repeat left center;
+				background-size: .18rem;
+				display: inline-block;
+				padding-left: .25rem;
+				.lineH(.3rem);
+				font-size: @f4;
+				color: @c_sub;
+			}
+			.type_vote, .type_topic{
+				position: absolute;
+				left: 0;
+				top: .05rem;
+				font-size: @f4;
+				text-align: center;
+				width: .36rem;
+				background-color: #fff;
+				.lineH(.16rem);
+				.border-radius(.08rem);
+			}
+			.type_topic{
+				border: 1px solid #f7950a;
+				color: #f7950a;
+			}
+			.type_vote{
+				border: 1px solid #4ea7d0;
+				color: #4ea7d0;
+			}
+		}
+		.vip:before, .view:before{
+			content: '';
+			width: .2rem;
+			height: .2rem;
+			display: inline-block;
+			vertical-align: baseline;
+			background: url(@newsIcon) no-repeat ;
+			background-size: 125% auto;
+			margin-right: .04rem;
+		}
+	}
+}

@@ -1,0 +1,33 @@
+@import "../reset.less";
+.user-page{
+	padding: .1rem;
+	.record-list{
+		margin-top: .1rem;
+		list-style: none;
+		li{
+			margin: 0;
+			padding: .1rem;
+			position: relative;
+			background-color: #fff;
+			.desc{
+				font-size: @f1;
+				color: @color2;
+				.ellipsis-one();
+				margin-right: .6rem;
+			}
+			.time{
+				font-size: @f4;
+				color: @c_sub;
+			}
+			.num{
+				position: absolute;
+				.lineH(.2rem);
+				top: 50%;
+				margin-top: -.1rem;
+				right: .1rem;
+				color: #f00;
+				font-size: .16rem;
+			}
+		}
+	}
+}

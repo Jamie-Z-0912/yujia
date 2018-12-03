@@ -1,0 +1,53 @@
+@import "../../pages/fun.less";
+.topic_item_box{
+	position: relative;
+	padding: .1rem .1rem .15rem;
+	background-color: #fff;
+	text-align: left;
+	a.block_link{
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		z-index: 1;
+	}
+	.img_box{
+		.border-radius(.06rem);
+		overflow: hidden;
+		img{display: block;width: 100%;}
+	}
+	.topic_title{
+		.lineH(.3rem);
+		margin-top: .05rem;
+		position: relative;
+		h2{
+			padding: 0;
+			margin: 0 .55rem 0 0;
+			font-weight: normal;
+			font-size: @f1;
+			color: @color2;
+			.ellipsis-one();
+		}
+		span{
+			position: absolute;
+			right: 0;
+			top: .02rem;
+			z-index: 4;
+			font-size: @f4;
+			color: #fff;
+			text-align: center;
+			width: .49rem;
+			.lineH(.2rem);
+			border: 1px solid @c_blue;
+			background-color: @c_blue;
+			.border-radius(.1rem);
+			&.has_taken{
+				color: @c_sub;
+				border-color:  @c_sub;
+				background-color: #fff;
+			}
+		}
+	}
+}

@@ -1,0 +1,107 @@
+@import "../reset.less";
+.mall-wrap{
+	.mall-hd{
+		position: fixed;
+		top: 0;
+		height: .4rem;
+		width: 100%;
+		max-width: 750px;
+		z-index: 9;
+		.mall-hd-con{
+			background-color: #fff;
+			border-bottom: 1px solid #d7d7d7;
+			border-top: 1px solid #d7d7d7;
+			font-size: 0;
+			.category{
+				position: absolute;
+				display: block;
+				top: 50%;
+				margin-top: -.19rem;
+				.square(.38rem);
+				background: url("../../static/img/mall_icon.png") no-repeat 0 0;
+				background-size: 100%;
+			}
+			.hd-search{
+				position: relative;
+				padding-left: .36rem;
+				margin: .07rem .1rem .07rem .38rem;
+				.lineH(.26rem);
+				.border-radius(.13rem);
+				background-color: #f5f5f5;
+				color: #999;
+				font-size: .14rem;
+				&:before{
+					position: absolute;
+					top: 50%;
+					margin-top: -.13rem;
+					left: .06rem;
+					content: "";
+					display: block;
+					.square(.26rem);
+					background: url("../../static/img/mall_icon.png") no-repeat 0 -1.44rem;
+					background-size: 180%;
+				}
+			}
+		}
+	}
+	.mall-bd{
+		.pageNav{
+			background-color: #fff;
+			font-size: 0;
+			padding: .1rem 0;
+			.nav-box{
+				display: inline-block;
+				width: 25%;
+				vertical-align: middle;
+				.nav-img{
+					margin: 0 auto;
+					.circle(.4rem);
+					box-shadow: 0 0 .1rem rgba(0,0,0,.08);
+					img{display: block; width: 100%; height: 100%}
+				}
+				.nav-text{
+					font-size: .12rem;
+					color: #333;
+					text-align: center;
+				}
+			}
+		}
+
+		.list-card{
+			margin-top: .1rem;
+			background-color: #fff;
+			padding: .1rem;
+			.list-card-hd{
+				position: relative;
+				.lineH(.4rem);
+				span{
+					font-size: @f1;
+					color: @color2;
+				}
+				a{
+					display: block;
+					position: absolute;
+					.lineH(22px);
+					top: 50%;
+					margin-top: -11px;
+					right: 0;
+					color: #999;
+					.am-icon{display: inline-block; vertical-align: bottom;}
+				}
+			}
+			.goods_list{padding: 0;}
+			.goods_item_box{ border: 0 none; padding: .08rem 0}
+		}
+		.layout{
+			position: absolute;
+			display: block;
+			top: 50%;
+			right: 0;
+			margin-top: -.19rem;
+			.square(.38rem);
+			background: url("../../static/img/mall_icon.png") no-repeat;
+			background-size: 100%;
+			&.block{background-position: 0 -.76rem;}
+		}
+	}
+}

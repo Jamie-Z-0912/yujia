@@ -1,0 +1,78 @@
+@import "../../pages/fun.less";
+.user_item{
+	position: relative;
+	padding: .1rem;
+	background-color: #fff;
+	text-align: left;
+	a{display: block; color: #000;}
+	.user_item_hd{
+		position: relative;
+		font-size: 0;
+		.photo{
+			.circle(.4rem);
+			overflow: hidden;
+			display: inline-block;
+			vertical-align: middle;
+			background-color: rgba(138,138,138, .2);
+			img{display: block; width: 100%;height: 100%;}
+		}
+		.user_hd_info{
+			display: inline-block;
+			vertical-align: middle;
+			height: .4rem;
+			margin-left: .1rem;
+			.name{
+				font-size: @f2;
+				.lineH(.25rem);
+			}
+			.other{
+				span{
+					font-size: @f3;
+					color: @c_sub;
+					.lineH(.15rem);
+					&:first-child{margin-right: .15rem;}
+				}
+			}
+		}
+		.user_hd_right{
+			position: absolute;
+			top: 0;
+			right: .1rem;
+			color: #c7c7cc;
+			padding-top: .09rem;
+		}
+	}
+	.user_brief{
+		padding-top: .1rem;
+		color: #aaa;
+		font-size: @f3;
+		.ellipsis(3);
+		height: auto;
+		border-top: 1px solid #eee;
+		margin-top: .1rem;
+	}
+	.user_brief_1{
+		padding-top: .1rem;
+		font-size: @f3;
+		.ellipsis-one();
+	}
+	.options{
+		position: relative;
+		z-index: 3;
+		display: flex;
+		font-size: 0;
+		height: .4rem;
+		margin-bottom: -.1rem;
+		.div_btn{
+			box-sizing: content-box;
+			width: 50%;
+			font-size: @f1;
+			-webkit-box-flex: 1;
+			-webkit-flex: 1;
+			flex: 1;
+			text-align: center;
+			.lineH(.4rem);
+			&.c_blue{ color: @c_blue;}
+		}
+	}
+}

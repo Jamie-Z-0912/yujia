@@ -1,0 +1,42 @@
+@import "../../pages/fun.less";
+.points_item{
+	position: relative;
+	display: inline-block;
+	padding-top: .1rem;
+	padding-bottom: .1rem;
+	min-width: 33.33%;
+	a{display: block;}
+	.cover{
+		width: 1rem;
+		height: 1rem;
+		margin: 0 auto;
+		img{
+			display: block;
+			width: 1rem;
+			height: 1rem;
+		}
+	}
+	.title{
+		width: 1rem;
+		margin: 0 auto;
+		.ellipsis(2);
+		color: #333;
+		font-size: .12rem;
+		line-height: .16rem;
+		padding-top: .08rem;
+	}
+	.points{
+		width: 1rem;
+		margin: 0 auto;
+		color: #999;
+		font-size: .13rem;
+		.lineH(.2rem);
+		padding-top: .05rem;
+		span{
+			display: inline-block;
+			vertical-align: text-bottom;
+			color: #f00;
+			font-size: .16rem;
+		}
+	}
+}

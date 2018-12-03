@@ -1,0 +1,58 @@
+@import "../reset.less";
+body{background-color: #fff;}
+.company-wrap{
+	.company-hd{
+		position: relative;
+		width: 100%;
+		height: 1.4rem;
+		margin-bottom: .7rem;
+		.company-hd-bg{display: block; width: 100%; height: 1.4rem;}
+		.company-hd-con{
+			position: absolute;
+			background-color: #fff;
+			height: 1.3rem;
+			left: .18rem;
+			right: .18rem;
+			bottom: -.52rem;
+			text-align: center;
+			.border-radius(.06rem);
+			box-shadow: 0 .05rem .1rem rgba(138, 138, 138, .2);
+			.photo{
+				.circle(.56rem);
+				margin-top: -.3rem;
+				display: inline-block;
+			}
+			.company-name{
+				font-size: @f2;
+				line-height: .26rem;
+			}
+			.company-info{
+				font-size: 0;
+				padding: .05rem 0;
+				span{
+					display: inline-block;
+					vertical-align: middle;
+					color: @c_sub;
+					font-size: @f3;
+					.lineH(@f2);
+					padding: 0 .1rem;
+					&:first-child{
+						border-right: 1px solid @c_sub;
+					}
+				}
+			}
+			.company-btn{
+				padding-top: .05rem;
+			}
+		}
+	}
+	.company-bd{
+		background-color: #fff;
+		.nothing{
+			padding: .1rem .2rem;
+			text-align: center;
+			font-size: .13rem;
+			color: #aaa;
+		}
+	}
+}

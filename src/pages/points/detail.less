@@ -1,0 +1,52 @@
+@import "../reset.less";
+.detail-wrap{
+	.detail-hd{
+		background-color: #fff;
+		.title{
+			color: #000;
+			font-size: .18rem;
+			line-height: .24rem;
+			padding: .1rem .1rem .05rem;
+			word-break: break-all;
+		}
+		.price{
+			padding: 0 .1rem .1rem;
+			span{display: inline-block; vertical-align: baseline;}
+			.cur{
+				font-size: .22rem; color: @c_red;
+				i{display: inline-block;vertical-align: baseline; font-size: .12rem; font-style: normal;}
+			}
+			.delete{
+				color: #999;
+				font-size: .12rem;
+			}
+		}
+	}
+	.detail-card{
+		margin-top: .1rem;
+		background-color: #fff;
+		padding: .1rem;
+		.detail-card-hd{
+			position: relative;
+			.lineH(.4rem);
+			span{
+				font-size: @f1;
+				color: @color2;
+			}
+		}
+	}
+	.option{
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		max-width: 750px;
+		.lineH(.5rem);
+		color: #fff;
+		font-size: @f1;
+		text-align: center;
+		background-image: -webkit-linear-gradient(top, color-stop(#fa3833 0%), color-stop(#db2946 10%));
+		background-image: -o-linear-gradient(top, #fa3833 0%,#db2946 10%);
+		background-image: linear-gradient(to bottom, #fa3833 0%,#db2946 10%);
+		background-repeat: repeat-y;
+	}
+}

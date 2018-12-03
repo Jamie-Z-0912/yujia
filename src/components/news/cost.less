@@ -1,0 +1,60 @@
+@import "../../pages/fun.less";
+.cost_model{
+	.am-modal-content{
+		overflow: visible;
+		.am-modal-close{
+			background-color: #fff;
+			border-radius: 50%;
+			top: -.4rem;
+			.am-modal-close-x{
+				width: .14rem;
+				height: .14rem;
+			}
+			&:after{
+				position: absolute;
+				content:'';
+				width: 1px;
+				height: .2rem;
+				background-color: #fff;
+				top: .2rem;
+				right: .12rem;
+			}
+		}
+	}
+	.cost_title{
+		&:before{
+			content: '';
+			display: inline-block;
+			margin-right: .1rem;
+			width: .2rem;
+			height: .2rem;
+			vertical-align: middle;
+			background: url(@newsIcon) no-repeat center -.74rem;
+			background-size: .3rem;
+		}
+		font-size: @f1;
+		color: @color1;
+		.lineH(.24rem);
+		padding-bottom: .1rem;
+	}
+	.cost_text{
+		text-align: left;
+		font-size: @f3;
+		color: @color1;
+		line-height: 1.6;
+	}
+	.footer-btn{
+		font-size: .14rem;
+		color: #000;
+		span{
+			display: inline-block;
+			margin-left: .05rem;
+			i{
+				font-size: 10px;
+				display: inline-block;
+				vertical-align: bottom;
+				font-style: normal;
+			}
+		}
+	}
+}

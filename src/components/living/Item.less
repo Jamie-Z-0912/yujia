@@ -1,0 +1,68 @@
+@import "../../pages/fun.less";
+
+.living_item_box{
+	padding: .15rem .1rem 0 ;
+	text-align: left;
+	.img_box{
+		display: block;
+		position: relative;
+		border-radius: .06rem;
+		max-height: 1.8rem;
+		overflow: hidden;
+		img{display: block;width: 100%;min-height: 100%;}
+		box-shadow: 0 2px 18px rgba(0,0,0,.2);
+		.other{
+			position: absolute;
+			right: 0;
+			left: 0;
+			bottom: 0;
+			background-image: -webkit-linear-gradient(top, color-stop(rgba(0,0,0,0) 0%), color-stop(rgba(0,0,0,.6) 100%));
+			background-image: -o-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,.6) 100%);
+			background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,.6) 100%);
+			background-repeat: repeat-y;
+			font-size: @f4;
+			color: #fff;
+			.lineH(.32rem);
+			padding-left: .1rem;
+			padding-top: .1rem;
+			.status{
+				position: absolute;
+				right: .1rem;
+				&>div{
+					background: url("../../static/img/v_icon.png") no-repeat;
+					background-size: .14rem;
+					.lineH(.14rem);
+					margin-top: .09rem;
+					padding-left: .2rem;
+					&.icon_replay{background-position: 0 0;}
+					&.icon_stop{background-position: 0 -.2rem;}
+					&.icon_living{background-position: 0 -.38rem}
+				}
+			}
+		}
+	}
+	.item-bd{
+		padding: .16rem .1rem;
+		position: relative;
+		.photo{
+			position: absolute;
+			left: 0;
+			top: .15rem;
+			.circle(.35rem);
+			overflow: hidden;
+			background-color: rgba(138,138,138, .2);
+			img{display: block; width: 100%;min-height: 100%;}
+		}
+		.item_con{
+			line-height: 1.1;
+			margin-left: .35rem;
+			.item_con_title{ font-size: @f2; color: @color2; padding-bottom: .02rem;}
+			.item_con_info{
+				font-size: @f4;
+				color:@c_sub;
+				span{margin-right: .12rem}
+				span:first-child{margin-right: .22rem;}
+			}
+		}
+	}
+}

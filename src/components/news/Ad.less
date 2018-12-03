@@ -1,0 +1,45 @@
+@import "../../pages/fun.less";
+.news_ad_box{
+	position: relative;
+	padding: .15rem .1rem;
+	.tit{
+		font-size: @f2;
+		color: @color2;
+		.ellipsis(2);
+		line-height: .22rem;
+	}
+	.img_box{
+		width: 100%;
+		padding: .08rem 0;
+		img{display: block; width: 100%; box-shadow: 0 2px 9px rgba(0, 0, 0, 0.16); border-radius: .06rem;}
+	}
+	.other{
+		position: relative;
+		font-size: @f4;
+		padding-top: .06rem;
+		line-height: .2rem;
+		span{
+			padding: 0 .08rem;
+			color: @c_sub;
+			border: 1px solid transparent;
+			border-radius: 4px;
+		}
+		.ad_tag{border-color: #999;}
+		.view{
+			position: absolute;
+			display: block;
+			right: 0;
+			bottom: 0;
+			&:before{
+				content: '';
+				width: .2rem;
+				height: .2rem;
+				display: inline-block;
+				vertical-align: baseline;
+				background: url(@newsIcon) no-repeat center -.32rem;
+				background-size: 125% auto;
+				margin-right: .04rem;
+			}
+		}
+	}
+}
