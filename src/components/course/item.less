@@ -1,0 +1,88 @@
+@import "../../pages/fun.less";
+@base_h:1.8rem;
+@order_icon:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAYAAADAQbwGAAABoElEQVQ4jZ2TP0tcQRTFfzP7RBuxSa1Y2Em0sjFFQGz8AP5BP0H6JSCKKAElVT5BmggKWgmLlVWCaL0hhUUEIU1csNBm37hzLPKMs+/N2133woF3595z7n135hrd8xGxh+A/CL5fh89Gd9QRk30KgG/z6wmO2z7JIJOPNxIc6oG8hcxvxLdycUDI4oA0DwMuQGqOmfD7bTkxXhMS0kLbscqjwC/SLnkekraksmTPMGRdlOeAYoKeK8QJwgdndb7bAcRhQE4Q84iRUDwmWOOdr5K3M2uZ8yttZ6e2hmch5CeR3/jAmZ1FKKi8grihZn8E5ATPVPkMX8iDiJncjEbwVBCzvc2wJBj4zdxMSy/S0iy+pYh/zaJ/LL7XImIzjFXe4au97ZjX4VJigtX4epo+BDuQu3dYTvaIFDHUTdCSGgpwPOMBxxcc4zjGcHzC0QjiBSQ4BiOVzrM1O2C91eDFNtmu7CGWEMvZ6v2z7LEb7dpLxAziL+IAcchG64JebL3yNhNfA0YRP4127HvENOKIrdafnoTyVq28Qawibvrid7InWvWuXPKXJ1AAAAAASUVORK5CYII=';
+
+.course_item_box{
+  position: relative;
+  box-sizing: content-box;
+  height: @base_h;
+  background-color: #fff;
+  .border-radius(.06rem);
+  margin-top: .25rem;
+  overflow: hidden;
+  a{display: block;}
+  .img_box{
+    position: absolute;
+    width: 100%;
+    height: @base_h;
+    img{display: block; width: 100%;}
+  }
+  .text_box{
+    position: relative;
+    height: @base_h;
+    background-image: -webkit-linear-gradient(bottom, color-stop(rgba(0,0,0,.7) 0%), color-stop(rgba(0,0,0,0) 70%));
+    background-image: -o-linear-gradient(bottom, rgba(0,0,0,.7) 0%, rgba(0,0,0,0) 70%);
+    background-image: linear-gradient(to top, rgba(0,0,0,.7) 0%, rgba(0,0,0,0) 70%);
+    background-repeat: repeat-y;
+    width: 100%;
+    .text-left, .text-right{
+      position: absolute;
+      top: 30%;
+    }
+    .text-left{
+      left: .1rem;
+      .text-name{
+        font-size: .22rem;
+        color: #000;
+        line-height: .34rem;
+        padding-top: .06rem;
+      }
+      .text-order{
+        &:before{
+          display: inline-block;
+          vertical-align: bottom;
+          content: '';
+          width: .12rem;
+          height: .12rem;
+          background: url(@order_icon) no-repeat 50% 50%;
+          background-size: .11rem .12rem;
+          margin-right: .06rem;
+        }
+        .lineH(.12rem);
+        color: #fff;
+        font-size: @f4;
+      }
+    }
+    .text-right{
+      right: .1rem;
+      .price{
+        padding-top: .06rem;
+        padding-bottom: .06rem;
+        height: .22rem;
+        text-align: center;
+        span{
+          display: block;
+          color: #fff;
+          background-color: #ff0000;
+          .lineH(.22rem);
+          .border-radius(.11rem);
+          font-size: @f4;
+        }
+      }
+      .ori-price{
+        font-size: @f4;
+        color: #000;
+      }
+    }
+    .text-desc{
+      position: absolute;
+      bottom: .1rem;
+      left: .1rem;
+      right: .1rem;
+      .ellipsis(2);
+      color: #fff;
+      line-height: 1.5;
+      font-size: @f4;
+    }
+  }
+}

@@ -45,7 +45,7 @@ export default class Banner extends PureComponent {
 									this.setState({imgHeight});
 								}}
 							/>
-							<span className='text'>{item.title}</span>
+							<span className='text'>{item.title||''}</span>
 						</a>
 					})}
 				</Carousel>

@@ -22,61 +22,61 @@ if(!XQN_BASE.unit_id){
 	});
 	window.localStorage.setItem('XQN_BASE', JSON.stringify(XQN_BASE));
 }
-const apiUrl = 'http://demo.jsqiaotuo.com/base/';
-const APPID = XQN_BASE.appId;
-const REDIRECTURL = 'http://demo.jsqiaotuo.com/base/';
+const apiUrl = 'http://testxqn.jslime.com/xqnback';
+// const APPID = XQN_BASE.appId;
+// const REDIRECTURL = 'http://demo.jsqiaotuo.com/base/';
 
 const timestamp = new Date().getTime();
 
-async function getToken(isUpdate) {
-	const options = {
-		headers: {
-			'Content-Type': 'application/x-www-form-urlencoded'
-		},
-		baseURL: apiUrl,
-		method: 'POST',
-		transformRequest: [function (data) {
-			let ret = '';
-			for (let it in data) {
-				ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
-			}
-			return ret;
-		}],
-		withCredentials: false,
-	};
-	if(isUpdate){
-		options.data = {
-			"token": window.localStorage.getItem('XQN_TOKEN'),
-			"refreshToken": window.localStorage.getItem('XQN_REFRESHTOKEN'),
-		};
-	}else{
-		options.params = {
-			code: getQuery('code'),
-		};
-	}
-
-	await axios(isUpdate ? '/app/tokenRefresh':'/app/getToken', options).then(async (res) => {
-		if (res.status === 200) {
-			// 将获取到的token存到localstorage
-			if(res.data.resCode===0){
-				window.localStorage.setItem('XQN_TOKEN',res.data.resultList.token);
-				if(isUpdate){
-					location.reload();
-				}else{
-					window.localStorage.setItem('XQN_REFRESHTOKEN',res.data.resultList.refreshToken);
-				}
-			}else if(res.data.resCode===8){
-				// token 过期， 请求微信登陆
-				window.localStorage.removeItem('XQN_TOKEN');
-				window.localStorage.removeItem('XQN_REFRESHTOKEN');
-				const	uri = base64url.encode(window.location.href);
-				window.location.href = `${REDIRECTURL}app/wechat/getWxCode?appid=${APPID}&backUri=${apiUrl}app/token?backUrl=${uri}&state=${XQN_BASE.unit_id}`;
-			}
-		} else {
-			console.log(res.status, res.statusText);
-		}
-	});
-}
+// async function getToken(isUpdate) {
+// 	const options = {
+// 		headers: {
+// 			'Content-Type': 'application/x-www-form-urlencoded'
+// 		},
+// 		baseURL: apiUrl,
+// 		method: 'POST',
+// 		transformRequest: [function (data) {
+// 			let ret = '';
+// 			for (let it in data) {
+// 				ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+// 			}
+// 			return ret;
+// 		}],
+// 		withCredentials: false,
+// 	};
+// 	if(isUpdate){
+// 		options.data = {
+// 			"token": window.localStorage.getItem('XQN_TOKEN'),
+// 			"refreshToken": window.localStorage.getItem('XQN_REFRESHTOKEN'),
+// 		};
+// 	}else{
+// 		options.params = {
+// 			code: getQuery('code'),
+// 		};
+// 	}
+//
+// 	await axios(isUpdate ? '/app/tokenRefresh':'/app/getToken', options).then(async (res) => {
+// 		if (res.status === 200) {
+// 			// 将获取到的token存到localstorage
+// 			if(res.data.resCode===0){
+// 				window.localStorage.setItem('XQN_TOKEN',res.data.resultList.token);
+// 				if(isUpdate){
+// 					location.reload();
+// 				}else{
+// 					window.localStorage.setItem('XQN_REFRESHTOKEN',res.data.resultList.refreshToken);
+// 				}
+// 			}else if(res.data.resCode===8){
+// 				// token 过期， 请求微信登陆
+// 				window.localStorage.removeItem('XQN_TOKEN');
+// 				window.localStorage.removeItem('XQN_REFRESHTOKEN');
+// 				const	uri = base64url.encode(window.location.href);
+// 				// window.location.href = `${REDIRECTURL}app/wechat/getWxCode?appid=${APPID}&backUri=${apiUrl}app/token?backUrl=${uri}&state=${XQN_BASE.unit_id}`;
+// 			}
+// 		} else {
+// 			console.log(res.status, res.statusText);
+// 		}
+// 	});
+// }
 
 // 获取数据
 const getResultData = function(url, data, method = 'GET',isFile){
@@ -86,7 +86,7 @@ const getResultData = function(url, data, method = 'GET',isFile){
 		param.append('uploadFile', data);  // 通过append向form对象添加数据
 		const optfile = {
 			headers: {
-				"Authorization": window.localStorage.getItem('XQN_TOKEN'),
+				"Authorization": window.localStorage.getItem('XQN_TOKEN')||'',
 				'Content-Type': 'multipart/form-data'
 			},
 			baseURL: apiUrl,
@@ -112,7 +112,7 @@ const getResultData = function(url, data, method = 'GET',isFile){
 	}else{
 		const opt = {
 			headers: {
-				"Authorization": window.localStorage.getItem('XQN_TOKEN'),
+				"Authorization": window.localStorage.getItem('XQN_TOKEN')||'',
 			},
 			baseURL: apiUrl,
 			method: method === 'POST'? 'POST':'GET',
@@ -170,21 +170,21 @@ const getChannelArrFunc = async ()=>{
 
 export default async function request(url, data, method = 'GET',isFile = 0) {
 	// 第 1 步：判断是否存在token
-	let xqnToken = window.localStorage.getItem('XQN_TOKEN');
+	// let xqnToken = window.localStorage.getItem('XQN_TOKEN');
 	// 第 4 步: 不存在token，获取Code !xqnToken：包括 xqnToken == undefined || xqnToken == null || xqnToken == ''
-	if(!xqnToken || xqnToken === 'undefined') {
-		console.log('不存在token，重新获取');
-		const code = getQuery('code');
-		const uri = base64url.encode(window.location.href);
-		if (!code) {
-			// 没有code，申请授权并将code返回当前页面;
-			window.location.href = `${REDIRECTURL}app/wechat/getWxCode?appid=${APPID}&backUri=${apiUrl}app/token?backUrl=${uri}&state=${XQN_BASE.unit_id}`;
-			return;
-		} else {
-			// 有code，根据code获取token;
-			await getToken();
-		}
-	}
+	// if(!xqnToken || xqnToken === 'undefined') {
+	// 	console.log('不存在token，重新获取');
+	// 	const code = getQuery('code');
+	// 	const uri = base64url.encode(window.location.href);
+	// 	// if (!code) {
+	// 	// 	// 没有code，申请授权并将code返回当前页面;
+	// 	// 	window.location.href = `${REDIRECTURL}app/wechat/getWxCode?appid=${APPID}&backUri=${apiUrl}app/token?backUrl=${uri}&state=${XQN_BASE.unit_id}`;
+	// 	// 	return;
+	// 	// } else {
+	// 	// 	// 有code，根据code获取token;
+	// 	// 	await getToken();
+	// 	// }
+	// }
 	getChannelArrFunc().then(() =>{
 		const channelArr = window.localStorage.getItem('ChannelArr');
 		if(channelArr){
