@@ -16,7 +16,7 @@ export default class Index extends PureComponent {
 				<a href={link}>
 					<div className="img_box">
 						<img src={img} alt=""/>
-						{buyStatus?<span>卖光啦</span>:null}
+						{buyStatus?<span className="tag">卖光啦</span>:null}
 					</div>
 					<div className="text_box">
 						<div className="name">{name}</div>

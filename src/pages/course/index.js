@@ -6,7 +6,7 @@ import courseIndex from "../../store/courseIndex";
 import {Icon} from 'antd-mobile';
 import Banner from '../../components/Banner';
 import Item from '../../components/course/item';
-import SmallItem from '../../components/course/smallItem';
+import ListCol3 from '../../components/course/listCol3';
 import './index.less';
 
 @observer
@@ -24,27 +24,31 @@ class Index extends PureComponent {
 		return(
 			hasData ? (
 				<div className="course-wrap" >
-					<div className="search-box">
-					
+					<div className="search-btn">
+						<span>搜索文章、视频、图片</span>
 					</div>
 					{
 						banner.length?<Banner data={banner} />:null
 					}
 					{
+						tags.length?
+							<ul className="tags_nav">
+								{tags.map(item=> <li key={item.id}><img src={item.icon} alt=""/><div className="tag_name">{item.name}</div></li>)}
+							</ul>:null
+					}
+					{
 						experience.length?
 							<div className="white_card hot_topic">
-								<div className="card_hd"><span>体验区</span> <a href={`#`} >查看全部 <Icon type="right" size="xs" className="right_arrow" />	</a></div>
-								<ul>
-									{
-										experience.map(item => <SmallItem data={item} key={item.id} />)
-									}
-								</ul>
+								<div className="card_hd"><span>体验区</span> <a href={`./list.html?type=exp`} >更多 <Icon type="right" size="xs" className="right_arrow" />	</a></div>
+								<div>
+									<ListCol3 data={experience} />
+								</div>
 							</div>:null
 					}
 					{
 						line.length?
 							<div className="white_card hot_topic">
-								<div className="card_hd"><span>在线课程</span> <a href={`#`} >查看全部 <Icon type="right" size="xs" className="right_arrow" />	</a></div>
+								<div className="card_hd"><span>在线课程</span> <a href={`./list.html?type=line`} >更多 <Icon type="right" size="xs" className="right_arrow" />	</a></div>
 								<div>
 									{
 										line.map(item => <Item data={item} key={item.id} />)

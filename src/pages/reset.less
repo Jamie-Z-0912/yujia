@@ -34,30 +34,41 @@ body>div[data-own="1"]{
 .white_card{
   background-color: #fff;
 	.card_hd{
-		position: relative;
-		height: .32rem;
-		padding-bottom: .05rem;
-		padding-top: .05rem;
-		span{
-			display: block;
-			font-size: @f2;
-			color: @color1;
-			.lineH(.32rem);
-		}
-		a{
-			position: absolute;
-			.lineH(.32rem);
-			right: .1rem;
-			top: .05rem;
-			color: @c_sub;
-			font-size: @f4;
-		}
-		.right_arrow{
-			display: inline-block;
-			vertical-align: text-top;
-			margin-left: -.04rem;
-			margin-right: -.14rem;
-		}
+      position: relative;
+      height: .32rem;
+      padding-bottom: .05rem;
+      padding-top: .05rem;
+      &:before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: .05rem;
+        height: .16rem;
+        margin-top: -.08rem;
+        background-color: @c_blue;
+      }
+      span{
+        display: block;
+        font-size: @f2;
+        color: @color1;
+        .lineH(.32rem);
+        margin-left: .08rem;
+      }
+      a{
+          position: absolute;
+          .lineH(.32rem);
+          right: .1rem;
+          top: .05rem;
+          color: @c_blue;
+          font-size: @f4;
+      }
+      .right_arrow{
+          display: inline-block;
+          vertical-align: text-top;
+          margin-left: -.04rem;
+          margin-right: -.14rem;
+      }
 	}
 }
 .t-c{text-align: center !important;}
