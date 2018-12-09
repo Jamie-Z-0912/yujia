@@ -22,7 +22,7 @@ if(!XQN_BASE.unit_id){
 	});
 	window.localStorage.setItem('XQN_BASE', JSON.stringify(XQN_BASE));
 }
-const apiUrl = 'http://testxqn.jslime.com/xqnback';
+const apiUrl = 'http://xqn.jslime.com/xqnback';
 // const APPID = XQN_BASE.appId;
 // const REDIRECTURL = 'http://demo.jsqiaotuo.com/base/';
 
