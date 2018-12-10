@@ -11,19 +11,20 @@ const data = observable({
 		img: temp,
 	},
 	courseMenu: [
-		{id:1,title: '理疗瑜伽教练培训，试看课程一', author: '健身优选', link:'#', cover:temp, vip: true, date:'07-02', view_num:32},
-		{id:2,title: '理疗瑜伽教练培训，试看课程二', author: '健身优选', link:'#', cover:temp, vip: true, date:'07-02', view_num:32},
-		{id:3,title: '理疗瑜伽教练培训，试看课程三', author: '健身优选', link:'#', cover:temp, vip: true, date:'07-02', view_num:32},
+		{id:1,title: '理疗瑜伽教练培训，试看课程一', name: '健身优选', link:'#', theme_img1:temp, vip: true, create_time:1543852800148, reading:32},
+		{id:2,title: '理疗瑜伽教练培训，试看课程二', name: '健身优选', link:'#', theme_img1:temp, vip: true, create_time:1543852800148, reading:32},
+		{id:3,title: '理疗瑜伽教练培训，试看课程三', name: '健身优选', link:'#', theme_img1:temp, vip: true, create_time:1543852800148, reading:32},
 	],
 	discussion:[
-		{id:1, head_url: temp, time: 1543852800148, up_num: 33, text: '太棒了！支持！', liked: true},
+		{id:1, head_url: temp, user_name: 'PUI', time: 1543852800148, up_num: 33, text: '太棒了！支持！', is_up: true},
 		{
 			id:2,
 			head_url: temp,
+			user_name: 'PUI',
 			time: 1543852800148,
 			up_num: 33,
 			text: '太棒了！支持！',
-			liked: false,
+			is_up: false,
 			imgs:[temp,temp,temp],
 			children:[
 				{

@@ -1,0 +1,89 @@
+@import "../reset.less";
+.detail-wrap{
+  background-color: #fff;
+  padding-bottom: .67rem;
+  .course_item_box{.border-radius(0); }
+  .page-tabs{
+    margin-left: .1rem;
+    margin-right: .1rem;
+    overflow-x: hidden;
+    .page-tab-nav{
+      font-size: 0;
+      text-align: center;
+      li{
+        position: relative;
+        display: inline-block;
+        width: 33%;
+        color: #878787;
+        font-size: .16rem;
+        font-weight: 500;
+        margin: 0;
+        padding: .07rem 0;
+        line-height: .3rem;
+        &:after{
+          content: '';
+          position: absolute;
+          width: .32rem;
+          height: .02rem;
+          bottom: .07rem;
+          left: 50%;
+          margin-left: -.16rem;
+          background-color: transparent;
+        }
+        &.active{
+          color: #000;
+          &:after{background-color: @c_blue;}
+        }
+      }
+    }
+    .page-tab-content{
+      border-top: 1px solid #f6f6f6;
+    }
+    .detail-context{
+      padding-top: .2rem;
+    }
+  }
+
+  .page-bottom {
+    border-top: 1px solid #d0d0d0;
+    position: fixed;
+    height: .57rem;
+    width: 100%;
+    bottom: 0;
+    background-color: #f6f6f6;
+    z-index: 2;
+    ul {
+      width: 100%;
+      font-size: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      li {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+        text-align: center;
+        &:nth-child(1){
+          width: 11.3%;
+        }
+        &:nth-child(2){
+          width: 11.3%;
+        }
+        &:last-child{
+          width: 77.4%;
+          padding-top: .1rem;
+          .pay_btn{
+            display: block;
+            background-color: @c_blue;
+            color: #fff;
+            font-size: @f2;
+            .lineH(.37rem);
+            margin-right: .1rem;
+            margin-left: .1rem;
+            .border-radius(.06rem);
+          }
+        }
+      }
+    }
+  }
+}

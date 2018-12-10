@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import moment from 'moment';
-import './item.less';
+import './disItem.less';
 // import { getQuery } from '../../libs/utils';
 // import Request from '../../service/baseAxios';
 
@@ -47,24 +47,26 @@ export default class Item extends PureComponent{
 	
 	render(){
 		const {data:{
+			id,
 			head_url,
 			user_name,
-			id,
-			comment,
-			create_time,
-			fabulous_num,
+			imgs,
+			text,
+			time,
 			up_num,
 			is_up,
+			children,
 		}} = this.props;
+		console.log('text',text);
 		return(
 			<div className="discuss_item">
 				<div className="dis_item_top">
 					<div className="photo"><img src={head_url} alt=""/></div>
 					<div className="dis_user">
-						<div>{user_name}</div>
+						<div className="user_name">{user_name}</div>
 						<div className="dis_time">
-							<span>{moment(create_time).format('YYYY/MM/DD')}</span>
-							<span>{moment(create_time).format('HH:mm')}</span>
+							<span>{moment(time).format('YYYY/MM/DD')}</span>
+							<span>{moment(time).format('HH:mm')}</span>
 						</div>
 						<div
 							className={['dis_like', is_up ? 'liked':''].join(' ')}
@@ -72,15 +74,17 @@ export default class Item extends PureComponent{
 							// 	this.goodBtnClick(id, is_up)
 							// }}
 						>
-							<span>{fabulous_num||up_num}</span>
+							<span>{up_num}</span>
 						</div>
 					</div>
 				</div>
 				<div className="dis_con">
 					<div className="dis_text">{text}</div>
-					{
-						imgs&&imgs.length? imgs.map(item=> <img src={item} alt=""/>):null
-					}
+					<div className="dis_img_box">
+						{
+							imgs&&imgs.length? imgs.map(item=> <img src={item} alt=""/>):null
+						}
+					</div>
 					{
 						children&&children.length?
 							children.map(item=><div className="item_sub_box">
