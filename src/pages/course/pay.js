@@ -1,10 +1,11 @@
-document.title = '课程付费';
+document.title = '订单购买';
 import React, { PureComponent } from 'react';
 import { render } from 'react-dom';
 import { observer } from 'mobx-react';
 import payStore from "../../store/course/pay";
 import {Icon} from 'antd-mobile';
 import './pay.less';
+import cardBg from '../../static/img/cardBg.png';
 
 @observer
 class Index extends PureComponent {
@@ -29,10 +30,14 @@ class Index extends PureComponent {
 			hasData ? (
 				<div className="course-pay-wrap">
 					<div className="pay-card">
-						<div>商品名称：{name}</div>
-						<div>订单号：{orderId}</div>
+						<img src={cardBg} alt=""/>
+						<div className="card-text">
+							<div className="card-title">支付信息</div>
+							<p>商品名称：{name}</p>
+							<p>订单号：{orderId}</p>
+						</div>
 					</div>
-					<div>
+					<div className="coupon">
 						<select>
 							{
 								couponList.length? couponList.map(item=><option value={item.num}>{item.text}</option>):<option>暂无可使用的优惠券</option>
@@ -51,6 +56,9 @@ class Index extends PureComponent {
 							<li>订单支付后，将无法退款。</li>
 							<li>最终解释权归主办方所有。</li>
 						</ol>
+					</div>
+					<div className="option">
+						<a>立即支付</a>
 					</div>
 				</div>
 			):<div className="routerLoading"><Icon type="loading" size="lg" /></div>

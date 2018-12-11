@@ -1,0 +1,68 @@
+@import "../reset.less";
+
+.course-pay-wrap{
+  margin-left: .1rem;
+  margin-right: .1rem;
+  padding-top: .35rem;
+  .pay-card{
+    position: relative;
+    width: 100%;
+    min-height: 2.2rem;
+    border-radius: .08rem;
+    overflow: hidden;
+    background-color: rgba(0,0,0,.4);
+    img{
+      display: block;
+      width: 100%;
+    }
+    .card-text{
+      position: absolute;
+      color: #fff;
+      width: 100%;
+      top: 0;
+      text-align: center;
+      .card-title{padding: .4rem 0; }
+      p{ font-size: .14rem; line-height: .36rem;}
+    }
+  }
+  .coupon, .price-area, .pay-rule{
+    margin-left: .1rem;
+    margin-right: .1rem;
+    margin-top: .24rem;
+  }
+  .coupon{
+    select{
+      width: 100%;
+      color: #999;
+      border: 1px solid #8a8a8a;
+      border-radius: .06rem;
+      background: #dcdcdc;
+      background-image: -webkit-linear-gradient(top, color-stop(#fff 0%), color-stop(#dcdcdc 100%));
+      background-image: -o-linear-gradient(top, #fff 0%,#dcdcdc 100%);
+      background-image: linear-gradient(to bottom, #fff 0%,#dcdcdc 100%);
+      background-repeat: repeat-y;
+      .lineH(.3rem);
+    }
+  }
+  .pay-rule{
+    h2{font-size: .15rem;padding-bottom: .1rem;}
+    ol{
+      list-style: disc;
+      font-size: .12rem;
+      color: #878787;
+    }
+  }
+  .option{
+    padding: .5rem 0;
+    text-align: center;
+    a{
+      display: inline-block;
+      color: #fff;
+      background-color: @c_blue;
+      font-size: @f2;
+      .lineH(.37rem);
+      width: 2.7rem;
+      .border-radius(.06rem);
+    }
+  }
+}
