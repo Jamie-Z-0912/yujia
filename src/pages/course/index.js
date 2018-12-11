@@ -24,7 +24,7 @@ class Index extends PureComponent {
 		return(
 			hasData ? (
 				<div className="course-wrap" >
-					<div className="search-btn">
+					<div className="search-btn" onClick={()=>window.location='./search.html'}>
 						<span>搜索文章、视频、图片</span>
 					</div>
 					{
