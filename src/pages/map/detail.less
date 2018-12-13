@@ -1,0 +1,113 @@
+@import "../reset.less";
+.map-detail-wrap{
+  min-width: 320px;
+  .white_card{
+    border-top: .04rem solid #f6f6f6;
+    .card_hd{
+      margin-left: .1rem;
+      margin-right: .1rem;
+    }
+    .course_discuss_item{
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+  .map-rem-content{
+    font-size: 0;
+    margin-left: .1rem;
+    margin-right: .1rem;
+    div.map-rem-row{
+      font-size: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .map-rem-bd{
+      display: inline-block;
+      width: 50%;
+      text-align: center;
+      .map-rem-box{
+        display: inline-block;
+        width: 1.74rem;
+        padding-bottom: .1rem;
+        img{
+          display: block;
+          width: 1.74rem;
+          height: .93rem;
+          .border-radius(.08rem);
+        }
+        .rem-info{
+          .title, .others{
+            position: relative;
+            width: 100%;
+            text-align: left;
+            .price,.users{
+              position: absolute;
+              top: 0;
+              right: 0;
+            }
+          }
+          .title{
+            .name{
+              .ellipsis-one();
+              font-size: .12rem;
+              max-width: 8.4em;
+            }
+            .price{
+              font-size: .12rem;
+              color: red;
+            }
+          }
+          .others{
+            span,.users{color: #797979; font-size: .1rem;}
+            span:first-child{margin-right: .12rem;}
+          }
+        }
+      }
+    }
+  }
+
+  .page-bottom {
+    border-top: 1px solid #d0d0d0;
+    position: fixed;
+    height: .57rem;
+    width: 100%;
+    bottom: 0;
+    background-color: #f6f6f6;
+    z-index: 2;
+    ul {
+      width: 100%;
+      font-size: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      li {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+        text-align: center;
+        &:nth-child(1){
+          width: 11.3%;
+        }
+        &:nth-child(2){
+          width: 11.3%;
+        }
+        &:last-child{
+          width: 77.4%;
+          padding-top: .1rem;
+          .pay_btn{
+            display: block;
+            background-color: @c_blue;
+            color: #fff;
+            font-size: @f2;
+            .lineH(.37rem);
+            margin-right: .1rem;
+            margin-left: .1rem;
+            .border-radius(.06rem);
+          }
+        }
+      }
+    }
+  }
+}

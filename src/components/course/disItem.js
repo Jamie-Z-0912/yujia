@@ -59,7 +59,7 @@ export default class Item extends PureComponent{
 		}} = this.props;
 		console.log('text',text);
 		return(
-			<div className="discuss_item">
+			<div className="course_discuss_item">
 				<div className="dis_item_top">
 					<div className="photo"><img src={head_url} alt=""/></div>
 					<div className="dis_user">

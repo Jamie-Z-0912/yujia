@@ -38,7 +38,7 @@ class Index extends PureComponent {
 					}
 					{
 						experience.length?
-							<div className="white_card hot_topic">
+							<div className="white_card">
 								<div className="card_hd"><span>体验区</span> <a href={`./list.html?type=exp`} >更多 <Icon type="right" size="xs" className="right_arrow" />	</a></div>
 								<div>
 									<ListCol3 data={experience} />
@@ -47,7 +47,7 @@ class Index extends PureComponent {
 					}
 					{
 						line.length?
-							<div className="white_card hot_topic">
+							<div className="white_card">
 								<div className="card_hd"><span>在线课程</span> <a href={`./list.html?type=line`} >更多 <Icon type="right" size="xs" className="right_arrow" />	</a></div>
 								<div>
 									{
