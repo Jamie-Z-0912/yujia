@@ -1,0 +1,91 @@
+@import "../../pages/fun.less";
+
+@icon:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAYCAMAAABQmCTMAAAAV1BMVEUAAACqqqqqqqorjtwrjtwrjtwrjtwrjtwrjtwrjtyqqqqqqqqqqqqqqqorjtyqqqorjtyqqqorjtwrjtwrjtyqqqqqqqorjtwrjtyqqqqqqqqqqqorjtwiNiRVAAAAG3RSTlMA8NfT87xoHOWx4clcsJaLTko9LQ+/ZoWEMR0bz88EAAAAw0lEQVQoz72SyxKDIAxFA74FS2mrrZL//87WMQEHRsZuPJu7ORrygPPMSkSMB6ZyCQdmn4jiwJTOjUZ4y4zerIqGgk0JMLGpAQRXL7B4UQRT78yezabFioKrGxjYHMCEdz5L7CjIdGDZtLDv6FHijYJMy7NSYPcm3BE/PuQ2l2GrDYJMokasOVZzbWrRevHfBTpsOeQ2xwl+TMK53D+JnrYVvfPNQWYg13tEZp6pme4ob6Z7j0lv6e/7PH3zsxQRCi7jC7GMJNS0YIjQAAAAAElFTkSuQmCC';
+.map_item_box{
+  padding: .1rem;
+  position: relative;
+  .img_box{
+    position: absolute;
+    left: .1rem;
+    top: .1rem;
+    height: .9rem;
+    width: 1.35rem;
+    img{display: block; width: 100%; height: .9rem;}
+  }
+  .text_box{
+    position: relative;
+    margin-left: 1.35rem;
+    padding-left: .1rem;
+    height: .9rem;
+    .certified{
+      width: .45rem;
+      height: .15rem;
+      position: absolute;
+      right: 0;
+      top: .03rem;
+    }
+    .name{
+      font-size: .15rem;
+      color: #000;
+      .ellipsis-one();
+      line-height: .21rem;
+    }
+    .certified~.name{margin-right: .45rem;}
+    p{
+      .ellipsis(2);
+      font-size: .11rem;
+      color: @color1;
+      margin-top: .03rem;
+      line-height: .18rem;
+    }
+    .others{
+      position: relative;
+      text-align: right;
+      font-size: 0;
+      white-space: nowrap;
+      span{
+        display: inline-block;
+        vertical-align: middle;
+        font-size: .1rem;
+        margin-left: .03rem;
+        color: @c_sub;
+      }
+    }
+    .coupon{
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      font-size: .1rem;
+      .ellipsis-one();
+      .lineH(.14rem);
+      .cou_num, .cou_text{
+        display: inline;
+      }
+      .cou_num{
+        color: red;
+        margin-right: .06rem;
+        &:before{
+          display: inline-block;
+          vertical-align: middle;
+          content: '';
+          width: .12rem;
+          height: .12rem;
+          background: url(@icon) no-repeat 0 0;
+          background-size: auto .12rem;
+        }
+      }
+      .cou_text{
+        color: #797979;
+        &:after{
+          display: inline-block;
+          vertical-align: middle;
+          content: '';
+          width: .2rem;
+          height: .12rem;
+          background: url(@icon) no-repeat right 0;
+          background-size: auto .12rem;
+        }
+      }
+    }
+  }
+}
