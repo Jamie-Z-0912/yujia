@@ -15,7 +15,7 @@
 <!-- <div data-own="1" id="root" style="height: 100%; overflow-y: auto;"></div> -->
 <div data-own="1" id="root"></div>
 <script>
-	function getQueryStr(name){
+	function getQuery(name){
 		const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
 		const r = window.location.search.substr(1).match(reg);
 		if (r !== null) {
@@ -23,18 +23,15 @@
 		}
 		return null;
 	}
-	if(getQueryStr('unit_id') && getQueryStr('appId')){
+	if(getQuery('unit_id')){
 		const localUnit = window.localStorage.getItem('XQN_BASE');
-		if(localUnit && JSON.parse(localUnit).unit_id!== getQueryStr('unit_id')){
-            window.localStorage.removeItem('XQN_TOKEN');
-            window.localStorage.removeItem('XQN_REFRESHTOKEN');
+		if(localUnit && JSON.parse(localUnit).unit_id!== getQuery('unit_id')){
             window.localStorage.removeItem('ChannelArr');
             window.localStorage.removeItem('XQN_channelId');
             window.localStorage.removeItem('XQN_USERINFO');
         }
         const base = {
-            unit_id: getQueryStr('unit_id'),
-            appId: getQueryStr('appId'),
+            unit_id: getQuery('unit_id'),
             baseFile: location.pathname.split('/')[1],
         };
         window.localStorage.setItem('XQN_BASE', JSON.stringify(base));

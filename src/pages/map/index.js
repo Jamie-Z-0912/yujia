@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import { observer } from 'mobx-react';
 import mapIndex from "../../store/mapIndex";
 import {Icon} from 'antd-mobile';
+import TabBar from '../../components/TabBar';
 import Banner from '../../components/Banner';
 import Item from '../../components/map/item';
 import MapList from '../../components/map/mapList';
@@ -63,6 +64,7 @@ class Index extends PureComponent {
 								<a className="change-modal map" onClick={()=>this.setState({modal:'map'})}>切换地图模式</a>
 						}
 					</div>
+					<TabBar />
 				</div>
 			):<div className="routerLoading"><Icon type="loading" size="lg" /></div>
 		)

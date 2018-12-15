@@ -1,22 +1,16 @@
 import axios from 'axios';
 import { stringify } from 'qs';
-// import base64url from 'base64-url';
-// import _ from 'lodash';
-// import {Toast} from 'antd-mobile';
 import { getQuery, XQN_BASE, setChannel} from "../libs/utils";
 
 if(!XQN_BASE.unit_id){
 	Object.assign(XQN_BASE,{
 		unit_id: getQuery('unit_id'),
-		appId: getQuery('appId'),
 		baseFile: location.pathname.split('/')[1],
 	});
 	window.localStorage.setItem('XQN_BASE', JSON.stringify(XQN_BASE));
 }
-const apiUrl = 'http://demo.jsqiaotuo.com/base/';
+const apiUrl = 'http://xqn.jslime.com/xqnback/';
 const timestamp = new Date().getTime();
-const WXCODE = getQuery('code') ||'';
-
 
 /**
  * 步骤:
@@ -40,7 +34,6 @@ export default async function request(url, data, method = 'GET',isFile = 0) {
 		let param = new FormData();  // 创建form对象
 		param.append('uploadFile', data);  // 通过append向form对象添加数据
 		param.append('unit_id', XQN_BASE.unit_id);
-		param.append('code', WXCODE);
 		const optfile = {
 			headers: {
 				"Authorization": window.localStorage.getItem('XQN_TOKEN')||'',
@@ -56,6 +49,8 @@ export default async function request(url, data, method = 'GET',isFile = 0) {
 						window.localStorage.setItem('XQN_TOKEN',res.data.resObject.token);
 					}
 					return res.data.resObject||res.data;
+				}else if(res.data.resCode === 444){
+					window.location.href = res.data.resObject.backurl;
 				}else {
 					return res.data;
 				}
@@ -66,7 +61,7 @@ export default async function request(url, data, method = 'GET',isFile = 0) {
 			console.log(e.code);
 		});
 	}else{
-		const dataCur = data ? {...data, unit_id: XQN_BASE.unit_id, code: WXCODE}:{unit_id: XQN_BASE.unit_id, code: WXCODE};
+		const dataCur = data ? {...data, unit_id: XQN_BASE.unit_id}:{unit_id: XQN_BASE.unit_id};
 		const opt = {
 			headers: {
 				"Authorization": window.localStorage.getItem('XQN_TOKEN')||'',
@@ -94,6 +89,8 @@ export default async function request(url, data, method = 'GET',isFile = 0) {
 						window.localStorage.setItem('XQN_TOKEN',res.data.resObject.token);
 					}
 					return res.data.resObject||res.data;
+				}else if(res.data.resCode === 444){
+					window.location.href = res.data.resObject.backurl;
 				}else {
 					return res.data;
 				}

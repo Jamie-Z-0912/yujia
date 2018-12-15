@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import { observer } from 'mobx-react';
 import courseIndex from "../../store/courseIndex";
 import {Icon} from 'antd-mobile';
+import TabBar from '../../components/TabBar';
 import Banner from '../../components/Banner';
 import Item from '../../components/course/item';
 import ListCol3 from '../../components/course/listCol3';
@@ -56,6 +57,7 @@ class Index extends PureComponent {
 								</div>
 							</div>:null
 					}
+					<TabBar />
 				</div>
 			):<div className="routerLoading"><Icon type="loading" size="lg" /></div>
 		)

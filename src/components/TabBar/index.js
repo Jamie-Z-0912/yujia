@@ -6,13 +6,6 @@ import './index.less';
 import {wxShare} from "../../libs/wxShare";
 
 export default class TabBar extends PureComponent {
-	constructor(props){
-		super(props);
-		this.state={
-			curChannel: channelId,
-		}
-	}
-
 	pageDir(type){
 		switch (type){
 			case 1:
@@ -20,26 +13,25 @@ export default class TabBar extends PureComponent {
 			case 2:
 				return `/${XQN_BASE.baseFile}/community/index.html`;
 			case 3:
-				return `/${XQN_BASE.baseFile}/living/index.html`;
+				return `/${XQN_BASE.baseFile}/map/index.html`;
 			case 4:
-				return `/${XQN_BASE.baseFile}/mall/index.html`;
+				return `/${XQN_BASE.baseFile}/course/index.html`;
 			case 5:
 				return `/${XQN_BASE.baseFile}/mine/index.html`;
 		}
 	};
-
-	getCurChannel(){
-		this.setState({
-			curChannel: window.localStorage.getItem('XQN_channelId'),
-		})
+	
+	getCurPage(){
+		const curHref = window.location.href;
+		if(/\/news\//.test(curHref)){ return 1; }
+		if(/\/community\//.test(curHref)){ return 2; }
+		if(/\/map\//.test(curHref)){ return 3; }
+		if(/\/course\//.test(curHref)){ return 4; }
+		if(/\/mine\//.test(curHref)){ return 5; }
 	}
-
+	
 	render() {
-		const{curChannel} = this.state;
-		if(!curChannel){
-			this.getCurChannel();
-			return null;
-		}
+		const curChannel = this.getCurPage();
 		const tabBarList = window.localStorage.getItem('ChannelArr') ? JSON.parse(window.localStorage.getItem('ChannelArr')):[];
 
 		if(tabBarList.length){
@@ -50,7 +42,7 @@ export default class TabBar extends PureComponent {
 					img: temp[0].channel_img_url,
 					title: temp[0].share_title,
 					desc: temp[0].share_desc,
-					url: `${window.location.href}${stringSymbol}unit_id=${XQN_BASE.unit_id}&appId=${XQN_BASE.appId}`,
+					url: `${window.location.href}${stringSymbol}unit_id=${XQN_BASE.unit_id}`,
 				});
 			}
 		}
@@ -65,9 +57,9 @@ export default class TabBar extends PureComponent {
 										<a
 											onClick={()=>{ window.localStorage.setItem('XQN_channelId',item.id)}}
 											href={`${this.pageDir(item.channel_type)}`}
-											className={ curChannel == item.id ? 'active':''}
+											className={ curChannel === item.channel_type ? 'active':''}
 										>
-											<i className="bar_icon" style={{backgroundImage: 'url(' + ( curChannel == item.id ? item.channel_img_url : item.uncheck_channel_img_url) + ')'}} />
+											<i className="bar_icon" style={{backgroundImage: 'url(' + ( curChannel === item.channel_type ? item.channel_img_url : item.uncheck_channel_img_url) + ')'}} />
 											<p className="tab_label">{item.channel_name}</p>
 										</a>
 									</li>

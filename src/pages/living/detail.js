@@ -51,7 +51,7 @@ class Detail extends PureComponent{
 			img: detail.surface_plot,
 			title: detail.title,
 			desc: '',
-			url: `${window.location.href}${stringSymbol}unit_id=${XQN_BASE.unit_id}&appId=${XQN_BASE.appId}`,
+			url: `${window.location.href}${stringSymbol}unit_id=${XQN_BASE.unit_id}`,
 		});
 
 		const statusOpt = (sTime, eTime, ctime) => {

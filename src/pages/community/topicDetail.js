@@ -59,7 +59,7 @@ class Index extends PureComponent {
 			img: detail.theme_pic,
 			title: detail.title,
 			desc: '',
-			url: `${window.location.href}${stringSymbol}unit_id=${XQN_BASE.unit_id}&appId=${XQN_BASE.appId}`,
+			url: `${window.location.href}${stringSymbol}unit_id=${XQN_BASE.unit_id}`,
 		});
 		return(
 			hasData ? (

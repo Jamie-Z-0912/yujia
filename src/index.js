@@ -6,11 +6,9 @@ class Index extends PureComponent{
 	constructor(props){
 		super(props);
 		window.localStorage.removeItem('XQN_channelId');
-		if(getQuery('unit_id') && getQuery('appId')){
+		if(getQuery('unit_id')){
 			const localUnit = window.localStorage.getItem('XQN_BASE');
 			if(localUnit && JSON.parse(localUnit).unit_id!== getQuery('unit_id')){
-				window.localStorage.removeItem('XQN_TOKEN');
-				window.localStorage.removeItem('XQN_REFRESHTOKEN');
 				window.localStorage.removeItem('ChannelArr');
 				window.localStorage.removeItem('XQN_channelId');
 				window.localStorage.removeItem('XQN_USERINFO');
@@ -18,7 +16,6 @@ class Index extends PureComponent{
 		}
 		const base = {
 			unit_id: getQuery('unit_id'),
-			appId: getQuery('appId'),
 			baseFile: location.pathname.split('/')[1],
 		};
 		window.localStorage.setItem('XQN_BASE', JSON.stringify(base));
