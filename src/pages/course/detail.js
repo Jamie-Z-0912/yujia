@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import { observer } from 'mobx-react';
 import detailStore from "../../store/course/detail";
 import { Icon } from 'antd-mobile';
-// import moment from 'moment';
 import HeadCard from '../../components/course/item';
 import DisItem from '../../components/course/disItem';
 import MenuItem from '../../components/course/menuItem';
@@ -11,13 +10,22 @@ import './detail.less';
 
 @observer
 class Index extends PureComponent {
-	
 	constructor(props){
 		super(props);
 		this.state = {
 			dataChange: false,
 			cur: 0,
 		};
+	}
+	
+	componentDidMount(){
+		detailStore.getDetailInfo().then(()=> this.setState({dataChange: !this.state.dataChange}));
+		detailStore.getClassList().then(()=> this.setState({dataChange: !this.state.dataChange}));
+	}
+	
+	triggerClassNextList(){
+		detailStore.ClassNextPage();
+		detailStore.getClassList().then(()=> this.setState({dataChange: !this.state.dataChange}));
 	}
 	
 	changeTab(cur){
@@ -36,7 +44,7 @@ class Index extends PureComponent {
 		return(
 			hasData?(
 				<div className="detail-wrap">
-					<HeadCard data={detail} />
+					<HeadCard dataChange={dataChange} data={detail} />
 					<div className="page-tabs">
 						<ul className="page-tab-nav">
 							<li onClick={this.changeTab.bind(this,0)} className={cur===0?'active':''}>介绍</li>
@@ -54,7 +62,20 @@ class Index extends PureComponent {
 							{
 								cur===1?
 									<div>
-										{courseMenu.length ? courseMenu.map(item => <MenuItem data={item} key={item.id} />):null}
+										{courseMenu.list.length ?
+											<InfiniteScroll
+												style={{textAlign:'center'}}
+												threshold={100}
+												pageStart={1}
+												loadMore={ this.triggerClassNextList.bind(this)}
+												hasMore={ courseMenu.curPage < courseMenu.totalPage }
+												loader={<div style={{display:'inline-block',paddingTop:'.15rem'}}><ActivityIndicator text="加载中……" /></div>}
+											>
+												{
+													courseMenu.list.map(item => <MenuItem data={item} key={item.id} />)
+												}
+											</InfiniteScroll>
+											:null}
 									</div>:null
 							}
 							{

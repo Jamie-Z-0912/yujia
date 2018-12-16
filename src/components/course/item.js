@@ -5,7 +5,7 @@ export default class Index extends PureComponent {
 	render() {
 		const {data:{
 			id,
-			url_img,
+			img_url,
 			name,
 			introduce,
 			original_price,
@@ -14,8 +14,8 @@ export default class Index extends PureComponent {
 		}} = this.props;
 		return(
 			<div className="course_item_box">
-				<a href={`./detail.html?detailId=${id}`}>
-					<div className="img_box"><img src={url_img} alt=""/></div>
+				<a href={`./detail.html?detail=${id}`}>
+					<div className="img_box"><img src={img_url||'http://static.etouch.cn/imgs/upload/1544105125.1216.png'} alt=""/></div>
 					<div className="text_box">
 						<div className="text-left">
 							<div className="text-name">{name}</div>

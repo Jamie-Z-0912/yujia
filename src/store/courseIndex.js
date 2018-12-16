@@ -13,14 +13,14 @@ const data = observable({
 	],
 	menuData:[],
 	experience:[
-		{id: 1, url_img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '理疗瑜伽教练培训', original_price: 100, current_price: 2},
-		{id: 2, buyStatus: 1, url_img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '可点击理疗瑜伽教练培训', original_price: 100, current_price: 2},
-		{id: 3, url_img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '可点击理疗瑜伽教练培训', original_price: 100, current_price: 2},
+		{id: 1, img_url: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '理疗瑜伽教练培训', original_price: 100, current_price: 2},
+		{id: 2, buyStatus: 1, img_url: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '可点击理疗瑜伽教练培训', original_price: 100, current_price: 2},
+		{id: 3, img_url: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '可点击理疗瑜伽教练培训', original_price: 100, current_price: 2},
 	],
 	line:[
-		{id: 1, url_img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '理疗瑜伽教练培训', introduce:'瑜伽培训相关的课程、学费、老师及学习资讯',buy_num: 3333, original_price: 900, current_price: 800},
-		{id: 2, url_img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '可点击理疗瑜伽教练培训', introduce:'瑜伽培训相关的课程、学费、老师及学习资讯',buy_num: 3333, original_price: 900, current_price: 800},
-		{id: 3, url_img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '可点击理疗瑜伽教练培训', introduce:'瑜伽培训相关的课程、学费、老师及学习资讯',buy_num: 3333, original_price: 900, current_price: 800},
+		{id: 1, img_url: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '理疗瑜伽教练培训', introduce:'瑜伽培训相关的课程、学费、老师及学习资讯',buy_num: 3333, original_price: 900, current_price: 800},
+		{id: 2, img_url: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '可点击理疗瑜伽教练培训', introduce:'瑜伽培训相关的课程、学费、老师及学习资讯',buy_num: 3333, original_price: 900, current_price: 800},
+		{id: 3, img_url: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '可点击理疗瑜伽教练培训', introduce:'瑜伽培训相关的课程、学费、老师及学习资讯',buy_num: 3333, original_price: 900, current_price: 800},
 	],
 	
 	// 获取栏目列表
