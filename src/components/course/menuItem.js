@@ -8,23 +8,22 @@ export default class Item extends PureComponent {
 			id,
 			theme_img1,
 			link,
-			title,
+			class_name,
 			vip,
-			name,
+			// name,
 			create_time,
-			reading
+			read_num,
 		}} = this.props;
-		
 		return(
 			<div className="course_menu_item">
 				<a href={link ||'#'}>
-					<div className="img_box"><img src={theme_img1} alt=""/></div>
+					<div className="img_box"><img src={theme_img1||'http://static.etouch.cn/imgs/upload/1544105125.1216.png'} alt=""/></div>
 					<div className="text_box">
-						<div className="tit">{title}</div>
-						<div className={['other',vip?'vip':''].join(' ')}>
-							<span>{name}</span>
+						<div className="tit">{class_name}</div>
+						<div className={['other','vip'].join(' ')}>
+							<span>{class_name}</span>
 							<span>{moment(create_time).format('MM-DD')}</span>
-							<span className='view'>{reading}</span>
+							<span className='view'>{read_num}</span>
 						</div>
 					</div>
 				</a>

@@ -23,11 +23,11 @@ class Index extends PureComponent {
 		detailStore.getClassList().then(()=> this.setState({dataChange: !this.state.dataChange}));
 	}
 	
-	triggerClassNextList(){
-		detailStore.ClassNextPage();
-		detailStore.getClassList().then(()=> this.setState({dataChange: !this.state.dataChange}));
-	}
-	
+	// triggerClassNextList(){
+	// 	detailStore.ClassNextPage();
+	// 	detailStore.getClassList().then(()=> this.setState({dataChange: !this.state.dataChange}));
+	// }
+	//
 	changeTab(cur){
 		this.setState({cur});
 	}
@@ -40,6 +40,7 @@ class Index extends PureComponent {
 			courseMenu,
 			discussion,
 		} = detailStore;
+		console.log(courseMenu);
 		const{ cur, dataChange} = this.state;
 		return(
 			hasData?(
@@ -62,20 +63,9 @@ class Index extends PureComponent {
 							{
 								cur===1?
 									<div>
-										{courseMenu.list.length ?
-											<InfiniteScroll
-												style={{textAlign:'center'}}
-												threshold={100}
-												pageStart={1}
-												loadMore={ this.triggerClassNextList.bind(this)}
-												hasMore={ courseMenu.curPage < courseMenu.totalPage }
-												loader={<div style={{display:'inline-block',paddingTop:'.15rem'}}><ActivityIndicator text="加载中……" /></div>}
-											>
-												{
-													courseMenu.list.map(item => <MenuItem data={item} key={item.id} />)
-												}
-											</InfiniteScroll>
-											:null}
+										{courseMenu.length ?
+											courseMenu.map(item => <MenuItem dataChange={dataChange} data={item} key={item.id} />)
+										: <div className="empty"><p className="empty-info">暂无课程目录~</p></div>	}
 									</div>:null
 							}
 							{
