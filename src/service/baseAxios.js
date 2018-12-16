@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { stringify } from 'qs';
-import { getQuery, XQN_BASE, setChannel} from "../libs/utils";
+import { getQuery, XQN_BASE, getCurChannel} from "../libs/utils";
 
 if(!XQN_BASE.unit_id){
 	Object.assign(XQN_BASE,{
@@ -20,14 +20,13 @@ const timestamp = new Date().getTime();
  * 4. 获取Code：跳转授权链接，获取Code，然后5
  * 5. 获取token：根据Code，调用'/app/getToken'接口，获取对应的token，并放到localStorage.
  */
-
-export default async function request(url, data, method = 'GET',isFile = 0) {
+ const request = async (url, data, method = 'GET',isFile = 0) => {
 	console.log(url,"获取数据");
 	if(url.indexOf('channel/channelList')<0){
 		const channelArr = window.localStorage.getItem('ChannelArr');
 		if(!channelArr){
-			const channelRes = await getResultData('/app/channel/channelList');
-			setChannel(channelRes);
+			const channelRes = await request('/app/channel/channelList');
+			getCurChannel(channelRes);
 		}
 	}
 	if(isFile){
@@ -101,5 +100,6 @@ export default async function request(url, data, method = 'GET',isFile = 0) {
 			console.log(e.code);
 		});
 	}
-	
-}
+};
+
+export default request;

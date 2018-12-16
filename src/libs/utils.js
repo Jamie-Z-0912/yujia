@@ -29,9 +29,16 @@ const user_agent = navigator.userAgent.toLowerCase();
 	 */
 	export const isWechat = (/micromessenger/i).test(user_agent);
 
-	function getCurChannel() {
-		const channelArr = window.localStorage.getItem('ChannelArr');
-		const tabList = channelArr ? JSON.parse(channelArr):[];
+	export const getCurChannel = (channelRes) => {
+		let tabList = [];
+		if(channelRes){
+			window.localStorage.setItem('ChannelArr', JSON.stringify(channelRes));
+			tabList = channelRes;
+		}else{
+			const channelArr = window.localStorage.getItem('ChannelArr');
+			tabList = channelArr ? JSON.parse(channelArr):[];
+		}
+		
 		const path = location.pathname;
 		let curId = '';
 		if(tabList.length){
@@ -62,7 +69,3 @@ const user_agent = navigator.userAgent.toLowerCase();
 	export const channelId = getCurChannel();
 	const xiaoQingNing = window.localStorage.getItem('XQN_BASE');
 	export const XQN_BASE =  xiaoQingNing ? JSON.parse(xiaoQingNing):{};
-	
-	export function setChannel(channelRes) {
-		window.localStorage.setItem('ChannelArr', JSON.stringify(channelRes));
-	}

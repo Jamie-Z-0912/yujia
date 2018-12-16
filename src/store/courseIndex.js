@@ -1,4 +1,5 @@
 import { observable } from 'mobx';
+import Request from "../service/baseAxios";
 // import myLike from '../static/img/my_favorite.png';
 // import Request from '../service/baseAxios';
 // import { Toast } from 'antd-mobile';
@@ -10,13 +11,7 @@ const data = observable({
 		{id: 2, link: './list.html', img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png'},
 		{id: 3, link: './list.html', img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png'},
 	],
-	tags:[
-		{id: 1, icon, name: '在线体验', link: './list.html'},
-		{id: 2, icon, name: '在线课程', link: './list.html'},
-		{id: 3, icon, name: '场馆特惠', link: './list.html'},
-		{id: 4, icon, name: '行业培训', link: './list.html'},
-		{id: 5, icon, name: '瑜伽旅行', link: './list.html'},
-	],
+	menuData:[],
 	experience:[
 		{id: 1, link: './detail.html', img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '理疗瑜伽教练培训', original_price: 100, price: 2},
 		{id: 2, buyStatus: 1, link: './detail.html', img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '理疗瑜伽教练培训', original_price: 100, price: 2},
@@ -26,7 +21,14 @@ const data = observable({
 		{id: 1, link: './detail.html', img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '理疗瑜伽教练培训', desc:'瑜伽培训相关的课程、学费、老师及学习资讯',order: 3333, original_price: 900, price: 800},
 		{id: 2, link: './detail.html', img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '理疗瑜伽教练培训', desc:'瑜伽培训相关的课程、学费、老师及学习资讯',order: 3333, original_price: 900, price: 800},
 		{id: 3, link: './detail.html', img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '理疗瑜伽教练培训', desc:'瑜伽培训相关的课程、学费、老师及学习资讯',order: 3333, original_price: 900, price: 800},
-	]
+	],
+	
+	// 获取栏目列表
+	async getMenuData(){
+		this.channelId = window.localStorage.getItem('XQN_channelId')||206;
+		const res = await Request('/app/channel/columnList', {channelId:this.channelId});
+		Object.assign(this.menuData, res);
+	},
 });
 
 export default data;

@@ -13,7 +13,7 @@ import Item from '../../components/news/Item';
 import BannerSmall from '../../components/BannerSmall';
 import AD from '../../components/news/Ad';
 import './index.less';
-import {setChannel, XQN_BASE} from "../../libs/utils";
+import {getCurChannel, XQN_BASE} from "../../libs/utils";
 
 @observer
 class Index extends PureComponent {
@@ -33,10 +33,9 @@ class Index extends PureComponent {
 
 	async componentDidMount(){
 		const tabList = await Request('/app/channel/channelList', { unit_id: XQN_BASE.unit_id });
-		await setChannel(tabList);
-		if(!tabList.length) return;
-		window.localStorage.setItem('XQN_channelId',tabList[0].id);
-		newsIndexStore.getMenuData(tabList[0].id).then(() => {
+		await getCurChannel(tabList);
+		
+		newsIndexStore.getMenuData().then(() => {
 			const {menuData} = newsIndexStore;
 			if(menuData.length){
 				this.changeCatId(menuData[0].id);

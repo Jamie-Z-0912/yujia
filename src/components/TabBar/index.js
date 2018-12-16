@@ -32,6 +32,7 @@ export default class TabBar extends PureComponent {
 	
 	render() {
 		const curChannel = this.getCurPage();
+		console.log(curChannel);
 		const tabBarList = window.localStorage.getItem('ChannelArr') ? JSON.parse(window.localStorage.getItem('ChannelArr')):[];
 
 		if(tabBarList.length){

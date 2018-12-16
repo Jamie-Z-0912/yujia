@@ -24,9 +24,9 @@ const newsIndex = observable({
 	hasData: false,
 
 	// 获取栏目列表
-	async getMenuData(cur){
-		this.channelId = cur;
-		const _menuData = await Request('/app/channel/columnList', {channelId:cur});
+	async getMenuData(){
+		this.channelId = window.localStorage.getItem('XQN_channelId');
+		const _menuData = await Request('/app/channel/columnList', {channelId:this.channelId});
 		Object.assign(this.menuData, _menuData);
 	},
 	// 获取banner轮播图

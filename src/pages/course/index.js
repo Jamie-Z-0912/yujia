@@ -1,3 +1,5 @@
+import { XQN_BASE, getCurChannel} from "../../libs/utils";
+
 document.title = '课程';
 import React, { PureComponent } from 'react';
 import { render } from 'react-dom';
@@ -9,6 +11,7 @@ import Banner from '../../components/Banner';
 import Item from '../../components/course/item';
 import ListCol3 from '../../components/course/listCol3';
 import './index.less';
+import Request from "../../service/baseAxios";
 
 @observer
 class Index extends PureComponent {
@@ -19,8 +22,22 @@ class Index extends PureComponent {
 		};
 	}
 	
+	async componentDidMount(){
+		const tabList = await Request('/app/channel/channelList', { unit_id: XQN_BASE.unit_id });
+		await getCurChannel(tabList);
+		courseIndex.getMenuData().then(() => {
+			const {menuData} = courseIndex;
+			if(menuData.length){
+				this.setState({
+					tabList,
+					changeData: !this.state.changeData,
+				})
+			}
+		});
+	};
+	
 	render(){
-		const {hasData, banner, tags, experience, line} = courseIndex;
+		const {hasData, banner, menuData, experience, line} = courseIndex;
 		
 		return(
 			hasData ? (
@@ -32,9 +49,9 @@ class Index extends PureComponent {
 						banner.length?<Banner data={banner} />:null
 					}
 					{
-						tags.length?
+						menuData.length?
 							<ul className="tags_nav">
-								{tags.map(item=> <li key={item.id}><img src={item.icon} alt=""/><div className="tag_name">{item.name}</div></li>)}
+								{menuData.map(item=> <li key={item.id} onClick={()=> window.location = `./list.html?columnId=${item.id}`}><img src={item.icon} alt=""/><div className="tag_name">{item.column_name}</div></li>)}
 							</ul>:null
 					}
 					{
