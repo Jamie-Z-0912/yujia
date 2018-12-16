@@ -4,28 +4,28 @@ import './item.less';
 export default class Index extends PureComponent {
 	render() {
 		const {data:{
-			img,
+			id,
+			url_img,
 			name,
-			desc,
+			introduce,
 			original_price,
-			price,
-			order,
-			link,
+			current_price,
+			buy_num,
 		}} = this.props;
 		return(
 			<div className="course_item_box">
-				<a href={link}>
-					<div className="img_box"><img src={img} alt=""/></div>
+				<a href={`./detail.html?detailId=${id}`}>
+					<div className="img_box"><img src={url_img} alt=""/></div>
 					<div className="text_box">
 						<div className="text-left">
 							<div className="text-name">{name}</div>
-							<div className="text-order">{order}人订阅</div>
+							<div className="text-order">{buy_num}人订阅</div>
 						</div>
 						<div className="text-right">
-							<div className="price"><span>￥{price}</span></div>
+							<div className="price"><span>￥{current_price}</span></div>
 							<div className="ori-price">原价￥{original_price}</div>
 						</div>
-						<div className="text-desc">{desc}</div>
+						<div className="text-desc">{introduce}</div>
 					</div>
 				</a>
 			</div>
