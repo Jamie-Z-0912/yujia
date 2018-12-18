@@ -19,7 +19,7 @@ export default class Index extends PureComponent {
 					<div className="text_box">
 						<div className="text-left">
 							<div className="text-name">{name}</div>
-							<div className="text-order">{buy_num}人订阅</div>
+							<div className="text-order">{buy_num||0}人订阅</div>
 						</div>
 						<div className="text-right">
 							<div className="price"><span>￥{current_price}</span></div>

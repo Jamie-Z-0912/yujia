@@ -1,14 +1,12 @@
 import React, { PureComponent } from 'react';
 import { render } from 'react-dom';
 import { observer } from 'mobx-react';
+import classroomStore from "../../store/course/classroom";
 import { Icon } from 'antd-mobile';
-import detailStore from "../../store/course/detail";
 import HeadCard from '../../components/course/item';
-import MenuItem from '../../components/course/menuItem';
 import DisItem from '../../components/course/disItem';
 import BuyBottom from '../../components/course/buyBottm';
-import './detail.less';
-import classroomStore from "../../store/course/classroom";
+import './classroom.less';
 
 @observer
 class Index extends PureComponent {
@@ -21,13 +19,13 @@ class Index extends PureComponent {
 	}
 	
 	componentDidMount(){
-		detailStore.getDetailInfo().then(()=> this.setState({dataChange: !this.state.dataChange}));
-		detailStore.getClassList().then(()=> this.setState({dataChange: !this.state.dataChange}));
+		classroomStore.getDetailInfo().then(()=> this.setState({dataChange: !this.state.dataChange}));
+		classroomStore.getClassroom().then(()=> this.setState({dataChange: !this.state.dataChange}));
 	}
 	
 	// triggerClassNextList(){
-	// 	detailStore.ClassNextPage();
-	// 	detailStore.getClassList().then(()=> this.setState({dataChange: !this.state.dataChange}));
+	// 	classroomStore.ClassNextPage();
+	// 	classroomStore.getClassList().then(()=> this.setState({dataChange: !this.state.dataChange}));
 	// }
 	//
 	changeTab(cur){
@@ -38,10 +36,9 @@ class Index extends PureComponent {
 		const {
 			hasData,
 			detail,
-			courseMenu,
+			room,
 			discussion,
-		} = detailStore;
-		console.log(courseMenu);
+		} = classroomStore;
 		const{ cur, dataChange} = this.state;
 		return(
 			hasData?(
@@ -50,22 +47,13 @@ class Index extends PureComponent {
 					<div className="page-tabs">
 						<ul className="page-tab-nav">
 							<li onClick={this.changeTab.bind(this,0)} className={cur===0?'active':''}>介绍</li>
-							<li onClick={this.changeTab.bind(this,1)} className={cur===1?'active':''}>目录</li>
 							<li onClick={this.changeTab.bind(this,2)} className={cur===2?'active':''}>互动</li>
 						</ul>
 						<div className="page-tab-content">
 							{
 								cur===0 ?
-									<div className="detail-context">
-										<p>{detail.introduce}</p>
-									</div>:null
-							}
-							{
-								cur===1?
-									<div>
-										{courseMenu.length ?
-											courseMenu.map(item => <MenuItem dataChange={dataChange} detailId={detail.id} data={item} key={item.id} />)
-											: <div className="empty"><p className="empty-info">暂无课程目录 ~</p></div>	}
+									<div className="video-box">
+										{room.source_url ?<iframe className="videoFrame" src={room.source_url} />:<p>暂无课程视频</p>}
 									</div>:null
 							}
 							{
