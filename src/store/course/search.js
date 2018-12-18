@@ -1,5 +1,5 @@
 import { observable } from 'mobx';
-import { getQuery } from '../../libs/utils';
+import {getCurChannel, getQuery} from '../../libs/utils';
 import Request from '../../service/baseAxios';
 
 const data =  observable({
@@ -48,19 +48,12 @@ const data =  observable({
 			});
 		}
 		//
-		// const res = await Request('/app/information/search',{
-		// 	title: decodeURIComponent(getQuery("keyword")),
-		// 	curPage,
-		// 	pageSize,
-		// });
-		const res = {
-			list:[
-				{id: 1, link: './detail.html', img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '理疗瑜伽教练培训', desc:'瑜伽培训相关的课程、学费、老师及学习资讯',order: 3333, original_price: 900, price: 800},
-				{id: 2, link: './detail.html', img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '理疗瑜伽教练培训', desc:'瑜伽培训相关的课程、学费、老师及学习资讯',order: 3333, original_price: 900, price: 800},
-				{id: 3, link: './detail.html', img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '理疗瑜伽教练培训', desc:'瑜伽培训相关的课程、学费、老师及学习资讯',order: 3333, original_price: 900, price: 800},
-				{id: 4, link: './detail.html', img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png', name: '理疗瑜伽教练培训', desc:'瑜伽培训相关的课程、学费、老师及学习资讯',order: 3333, original_price: 900, price: 800},
-			]
-		};
+		const res = await Request('/app/course/list',{
+			name: decodeURIComponent(getQuery("keyword")),
+			channel_id: getCurChannel(),
+			curPage,
+			pageSize,
+		});
 		
 		if(res.list && res.list.length){
 			if(res.curPage===1){

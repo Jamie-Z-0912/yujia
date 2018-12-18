@@ -11,7 +11,7 @@ export default class Index extends PureComponent{
 		const {id, current_price} = this.props;
 		console.log('detailId',id);
 		return(
-			<div className="page-bottom">
+			<div className="course-buy-bottom ">
 				<ul>
 					<li onClick={()=>window.location='./index.html'} />
 					<li />

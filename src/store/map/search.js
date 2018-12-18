@@ -48,41 +48,41 @@ const data =  observable({
 			});
 		}
 		//
-		// const res = await Request('/app/information/search',{
-		// 	title: decodeURIComponent(getQuery("keyword")),
-		// 	curPage,
-		// 	pageSize,
-		// });
-		const res = {
-			list:[
-				{
-					id: 1,
-					img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png',
-					certified: true,
-					name:'KOUJAR场馆',
-					desc: '场馆小朋友都爱的常州恐龙园，新开张啦！我园增添了很多设施，一定是安全第一！',
-					star: 4,
-					book: 233,
-					view: 432,
-					distance: 800,
-					coupon: {
-						num: 200,
-						text:'第四届国际瑜伽日，特别开放课程体验',
-					},
-				},
-				{
-					id: 1,
-					img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png',
-					certified: false,
-					name:'KOUJAR.May',
-					desc: '名师小朋友都爱的常州恐龙园，新开张啦！我园增添了很多设施，一定是安全第一！',
-					internal: true,
-					book: 233,
-					view: 432,
-					distance: 800,
-				},
-			]
-		};
+		const res = await Request('/app/venue/list',{
+			name: decodeURIComponent(getQuery("keyword")),
+			curPage,
+			pageSize,
+		});
+		// const res = {
+		// 	list:[
+		// 		{
+		// 			id: 1,
+		// 			img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png',
+		// 			certified: true,
+		// 			name:'KOUJAR场馆',
+		// 			desc: '场馆小朋友都爱的常州恐龙园，新开张啦！我园增添了很多设施，一定是安全第一！',
+		// 			star: 4,
+		// 			book: 233,
+		// 			view: 432,
+		// 			distance: 800,
+		// 			coupon: {
+		// 				num: 200,
+		// 				text:'第四届国际瑜伽日，特别开放课程体验',
+		// 			},
+		// 		},
+		// 		{
+		// 			id: 1,
+		// 			img: 'http://static.etouch.cn/imgs/upload/1544105125.1216.png',
+		// 			certified: false,
+		// 			name:'KOUJAR.May',
+		// 			desc: '名师小朋友都爱的常州恐龙园，新开张啦！我园增添了很多设施，一定是安全第一！',
+		// 			internal: true,
+		// 			book: 233,
+		// 			view: 432,
+		// 			distance: 800,
+		// 		},
+		// 	]
+		// };
 		
 		if(res.list && res.list.length){
 			if(res.curPage===1){

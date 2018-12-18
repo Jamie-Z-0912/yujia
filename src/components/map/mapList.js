@@ -14,7 +14,7 @@ export default class Index extends PureComponent {
 		try{
 			console.log(window.BMap);
 			const liteMap = new BMap.Map('mapContainer');
-			const point = new BMap.Point(116.404, 39.915);
+			const point = new BMap.Point(118.79,32.06);
 			liteMap.centerAndZoom(point, 11);
 			
 			// 初始化地图， 设置中心点坐标和地图级别
