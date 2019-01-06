@@ -1,9 +1,7 @@
 import Request from '../service/baseAxios';
-import {XQN_BASE} from "./utils";
 
 export async function wxShare(opt) {
 	const data = await Request('/app/wechat/getWechatData',{
-			appid: XQN_BASE.appId||'',
 			url: window.location.href
 		},'POST');
 
